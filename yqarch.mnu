@@ -1,0 +1,2121 @@
+//
+//  “源泉设计”附加菜单文件，用于在原版AutoCAD菜单上新增一项
+//   可以用于 AutoCAD 2000 以上各个版本
+//   本菜单项可利用命令"YQ_MENU"或"YQ_LANG"加载
+//
+***MENUGROUP=yqarch
+
+
+//
+//   Begin System Pointing Device Menus
+//
+***AUX1
+//$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,5),GRIP_),$P0=ACAD.GRIPS $P0=*);
+endp,int,mid,qua,nod
+$P0=SNAP $p0=*
+^C^C
+^B
+^O
+^G
+^D
+^E
+^T
+
+***AUX2
+// Shift + button
+^O
+^O
+^O
+
+***AUX3
+// Control + button
+$P0=yqarch.yqapp $p0=*
+
+***AUX4
+// Control + shift + button
+$P0=SNAP $p0=*
+
+
+
+***POP37
+**yqarche
+[YQARCH]
+[->System Setup]
+   [User Preferences  ****<yqsys>]^c^c^pYQ_SYS_SETTING ^P
+   [Command Pandect     *****<yq>]^c^c^pYQARCH ^P
+   [Show YQArch Toolbars   *<tbA>]^c^c^pYQ_TOOLBARSON ^P
+   [Hide YQArch Toolbars  *<tbAF>]^c^c^pYQ_TOOLBARSOFF ^P
+   [--]
+   [Select Current User *<yquser>]^c^c^pYQ_SETUSER ^P
+   [Select Language     *<yqlang>]^c^c^pYQ_LANG ^P
+   [Set Default Units  *<yqunits>]^c^c^pYQ_SETUNITS ^P
+   [Reload YQArch Menu  *<yqmenu>]^c^c^pYQ_MENU ^P
+   [--]
+   [Set Dwg/Sym. Scale  *****<sd>]^c^c^pYQ_SETDWGSCALE ^P
+   [Drawing Frame (A0-A4)  **<tk>]^c^c^pYQ_DWGFRAME ^p
+   [--]
+   [YQArch Help         *<yqhelp>]^c^c^pYQ_HELP ^P
+   [YQArch Version       *<yqver>]^c^c^pYQ_VER ^P
+   [YQArch Website       *<yqweb>]^c^c^pYQ_WEBSITE ^P
+   [Tutorial Website             ]^c^c^p(yq_browser "http://bigd.ys168.com") ^P
+   [Donate/Support      *<donate>]^c^c^pYQ_DONATE ^P
+   [--]
+   [YQArch QQ Group1:   119803917]^c^c^p(yq_qqgroup "119803917") ^P
+   [YQArch QQ Group2:    41952877]^c^c^p(yq_qqgroup "41952877") ^P
+   [YQArch QQ Group3:    41195287]^c^c^p(yq_qqgroup "41195287") ^P
+   [Decoration Group4:  390339771]^c^c^p(yq_qqgroup "390339771") ^P
+   [Decoration Group6:  363273173]^c^c^p(yq_qqgroup "363273173") ^P
+   [Decoration Group8:  758743236]^c^c^p(yq_qqgroup "758743236") ^P
+   [Author QQ:575825448,970274029]^c^c^p(yq_qqmsg "970274029") ^P
+   [Send Email to Author         ]^c^c^p(yq_mailto "575825448@qq.com") ^P
+   [--]
+   [About YQArch       *<yqabout>]^c^c^pYQ_ABOUT ^p
+   [--]
+   [<-YQArch Uninstall  *<yquninst>]^c^c^pYQ_UNINSTALL ^P
+[--]
+[->Plane Wall/Column]
+   [Draw Axis Line          *<ax>]^c^c^pYQ_AXISLINE ^p
+   [Draw Grid Axis        **<zxw>]^c^c^pYQ_GRIDAXIS ^p
+   [--]
+   [Draw Wall           *****<ww>]^c^c^pYQ_WALL ^p
+   [Wall Scissor        *****<TW>]^c^c^pYQ_TRIM_FIX_WALL ^p
+   [Change Wall Thick.  ****<wwT>]^c^c^pYQ_WALL_CHGTHK ^p
+   [Axis Line to Walls   ***<Xww>]^c^c^pYQ_LINE2WALL ^p
+   [Wall Offseting        **<wwO>]^c^c^pYQ_WALL_CDOFFSET ^p
+   [--]
+   [Rebuilt wall Axis     **<wwA>]^c^c^pYQ_WALL2AXIS ^p
+   [Fill in Walls/Columns **<wwF>]^c^c^pYQ_FILL_WALL ^p
+   [--]
+   [Rectangular Column  ****<zzR>]^c^c^pYQ_R_COLUMN ^p
+   ['O'-Shape Column    ****<zzC>]^c^c^pYQ_O_COLUMN ^p
+   ['L'-Shape Column     ***<zzL>]^c^c^pYQ_L_COLUMN ^p
+   ['T'-Shape Column     ***<zzT>]^c^c^pYQ_T_COLUMN ^p
+   ['+'-Shape Column     ***<zzX>]^c^c^pYQ_C_COLUMN ^p
+   [--]
+   [Arrange Columns      **<zzBZ>]^c^c^pYQ_AXIS_COLUMN ^p
+   [Convert to Column    **<xxzz>]^c^c^pYQ_PLINE2COLUMN ^p
+   [Fill in Columns       **<zzF>]^c^c^pYQ_FILL_COLUMN ^p
+   [--]
+   [<-Del Win/Dr/Wall/Col  ****<EW>]^c^c^pYQ_ERASE_WALL ^p
+[->Plane Window/Door]
+   [Open Door on Wall   *****<AD>]^c^c^pYQ_HOLE_DOOR ^p
+   [Draw a Door          ***<AD2>]^c^c^pYQ_DOOR ^p
+   [Open Window on Wall *****<AW>]^c^c^pYQ_HOLE_WIN ^p
+   [Draw a Window        ***<AW2>]^c^c^pYQ_WIN ^p
+   [Replace Window/Door  ****<TD>]^c^c^pYQ_WINDOOR_REPLACE ^p
+   [Auto Open Hole         **<HO>]^c^c^pYQ_HOLE ^p
+   [--]
+   [Open Pocket Door   *****<ADT>]^c^c^pYQ_HOLE_POCKETDOOR ^p
+   [Draw a Pocket Door  ***<ADT2>]^c^c^pYQ_POCKETDOOR ^p
+   [Replace Pocket Door ****<TDD>]^c^c^pYQ_POCKETDOOR_REPLACE ^p
+   [--]
+   [Open Param Window   *****<WD>]^c^c^pYQ_HOLE_WINDOW ^p
+   [Draw a Param Window  ***<WD2>]^c^c^pYQ_WINDOW ^p
+   [Replace Param Window****<TDW>]^c^c^pYQ_WINDOW_REPLACE ^p
+   [--]
+   [Open Corner Window *****<WDZ>]^c^c^pYQ_HOLE_CORNERWINDOW ^p
+   [Replace Cor. Window ****<TDZ>]^c^c^pYQ_CWINDOW_REPLACE ^p
+   [--]
+   [Doorsill Manager      **<MKX>]^c^c^pYQ_DOORSILL ^p
+   [Door Opening Manager  **<MDX>]^c^c^pYQ_DOOROPENING ^p
+   [--]
+   [Lines to Windows      **<xWD>]^c^c^pYQ_LINE2WINDOW ^p
+   [Change WD/DR Width   ****<CW>]^c^c^pYQ_WIDTH_WINDOOR ^p
+   [Move Window/Door     ****<VW>]^c^c^pYQ_MOVE_WINDOOR ^p
+   [--]
+   [Repair Win/Door/Col  ****<XF>]^c^c^pYQ_REPAIR ^p
+   [Move and Repair      ****<vX>]^c^c^pYQ_MOVEANDFIX ^p
+   [Copy and Repair      ****<cX>]^c^c^pYQ_COPYANDFIX ^p
+   [Mirror and Repair   ****<rrX>]^c^c^pYQ_MIRRORANDFIX ^p
+   [--]
+   [Turn Windows/Doors   ****<FZ>]^c^c^pYQ_OVERTURN ^p
+   [Match/Repl. Win/Door****<ssB>]^c^c^pYQ_MATCH_BLOCK ^p
+   [--]
+   [Del Win/Dr/Wall/Col  ****<EW>]^c^c^pYQ_ERASE_WALL ^p
+   [--]
+   [<-Window Serial Number ***<wbh>]^c^c^pYQ_WINSERIALNUMBER ^p
+[--]
+[->Building Components]
+   [Index of Components *****<gj>]^c^c^pYQ_SLDCOMPONENTS ^p
+   [--]
+   [Plan/Elev Escalator ****<ltF>]^c^c^pYQ_ESCALATOR ^p
+   [--]
+   [Plan of Staircase   ****<ltJ>]^c^c^pYQ_STAIRCASE_PLAN ^p
+   [Plan of Arc Staircase***<ltA>]^c^c^pYQ_ARCSTAIR_PLAN ^p
+   [Plan of Elevator      **<DTJ>]^c^c^pYQ_LIFT_PLAN ^p
+   [--]
+   [Elevation of Door   ****<adE>]^c^c^pYQ_DOOR_ELEVATION ^p
+   [Section of Door     ****<adS>]^c^c^pYQ_DOOR_SECTION ^p
+   [Section of Bay Win  ****<wtS>]^c^c^pYQ_BAYWIN_SECTION ^p
+   [Elevation of Window ****<wdE>]^c^c^pYQ_WINDOW_ELEVATION ^p
+   [Section of Window     **<WDS>]^c^c^pYQ_WINDOW_SECTION ^p
+   [Elev/Sect of Shutter   **<BY>]^c^c^pYQ_SHUTTER ^p
+   [Curtain Wall Glass    **<mBL>]^c^c^pYQ_CURTAINGLASS ^p
+   [--]
+   [Lines to Window Elev.***<wdD>]^c^c^pYQ_LINES2WINELEV ^p
+   [SN. to Window Elev.   **<t2w>]^c^c^pYQ_SN2WINELEV ^p
+   [Elevation Curtain Wall***<MQ>]^c^c^pYQ_CURTAINWALL ^p
+   [Section of Partition  **<MQS>]^c^c^pYQ_GLASS_PARTITION ^p
+   [Elevation Banister    ***<LG>]^c^c^pYQ_BANISTER ^p
+   [--]
+   [Section of Staircase****<ltP>]^c^c^pYQ_STAIRCASE_SECTION ^p
+   [Section of Stpes     **<lxtb>]^c^c^pYQ_STEP_SECTION ^p
+   [--]
+   [Section of Waterproof **<FSC>]^c^c^pYQ_WATERPROOF ^p
+   [<-Section of Stucco       *<FN>]^c^c^pYQ_STUCCO ^p
+[->Decoration Components]
+   [Index of Decoration *****<zs>]^c^c^pYQ_SLDDECORATION ^p
+   [--]
+   [Arrange Furniture   *****<JJ>]^c^c^pYQ_AUTOFURNITURE ^p
+   [Arrange WC/shower   *****<WC>]^c^c^pYQ_ARRANGEWC ^p
+   [--]
+   [Chest Plan             **<YG>]^c^c^pYQ_CHESTPLAN ^p
+   [Curtain Plan          **<CLP>]^c^c^pYQ_CURTAINPLAN ^p
+   [Plaster String Plan   **<SGX>]^c^c^pYQ_PLASTERSTRINGPLAN ^p
+   [Plan of Cupboard        *<GZ>]^c^c^pYQ_CUPBOARDPLAN ^p
+   [Elevation of Cupboard **<GZE>]^c^c^pYQ_CUPBOARDELEV ^p
+   [--]
+   [Section of Stone Tile***<stB>]^c^c^pYQ_STONETILE ^p
+   [Section of Wooden Frame *<MF>]^c^c^pYQ_WOODENFRAME ^p
+   [Boards Arry           **<CBZ>]^c^c^pYQ_ARRAY_BOARDS ^p
+   [--]
+   [Section of Blockboard  *<MGB>]^c^c^pYQ_BLOCKBOARD ^p
+   [Section of Plywood      *<JB>]^c^c^pYQ_PLYWOOD ^p
+   [Section Wood Flooring  *<MDB>]^c^c^pYQ_WOODFLOORING ^p
+   [Section of Glass        *<BL>]^c^c^pYQ_GLASS ^p
+   [Section Gypsum Board ***<SGB>]^c^c^pYQ_GYPSUMBOARD ^p
+   [Section Light Trough***<THDC>]^c^c^pYQ_LIGHTTROUGH ^p
+   [Partition Wall         **<GQ>]^c^c^pYQ_PARTITIONWALL ^p
+   [--]
+   [Section of Formed Steel *<XG>]^c^c^pYQ_FORMEDSTEEL ^p
+   [--]
+   [Cotton Insulation      *<BWM>]^c^c^pYQ_INSULATION ^p
+   [Welding Line            *<HF>]^c^c^pYQ_WELDINGLINE ^p
+   [Draw Hose               *<RG>]^c^c^pYQ_HOSE ^p
+   [Draw Pipe               *<GX>]^c^c^pYQ_PIPE ^p
+   [--]
+   [Hole on Board           *<KD>]^c^c^pYQ_BOARDHOLE ^p
+   [Cylinder shadow        *<YZX>]^c^c^pYQ_CYLINDERSHADOW ^p
+   [Back-Bolt Hole        **<BSK>]^c^c^pYQ_BACKBOLTHOLE ^p
+   [--]
+   [Arrange Lamps           *<DJ>]^c^c^pYQ_AUTOLAMPS ^p
+   [Random Spread          *<MTX>]^c^c^pYQ_RANDOMSPREAD ^p
+   [<-Indoor Elevation      ***<LM>]^c^c^pYQ_INDOORELEV ^p
+[->Architectural Symbols]
+   [Index of Symbols    *****<fh>]^c^c^pYQ_SLDSYMBOLS ^p
+   [--]
+   [Arrange Axis Symbol ****<aZH>]^c^c^pYQ_AUTO_AXIS_DIM ^p
+   [Draw Axis Symbols    ****<ZH>]^c^c^pYQ_SYMBOL_AXIS_C ^p
+   [--]
+   [Geodesic Coordinates ****<ZB>]^c^c^pYQ_GEODESIC_COORDINATES ^p
+   [Designed Elevation   ****<BG>]^c^c^pYQ_DESIGNED_ELEVATION ^p
+   [Contour Elevation      *<xBG>]^c^c^pYQ_CONTOUR_ELEVATION ^p
+   [--]
+   [Section Plane Symbol  **<pqf>]^c^c^pYQ_SYMBOL_SECTIONPLANE ^p
+   [Section Symbol        **<dmf>]^c^c^pYQ_SYMBOL_SECTIONCUTTER ^p
+   [Slope Symbol           **<PD>]^c^c^pYQ_SYMBOL_GRADIENT ^p
+   [Disconnection line     **<ZX>]^c^c^pYQ_DISCONNECTION_LINE ^p
+   [Pipe Cutting Symbol    *<GPX>]^c^c^pYQ_PIPECUTTING ^p
+   [Symmetry Axis          *<dcz>]^c^c^pYQ_SYMMETRY_AXIS ^p
+   [Central Line           *<zxx>]^c^c^pYQ_CENTRAL_LINE ^p
+   [--]
+   [Wire Surround          *<aCC>]^c^c^pYQ_WIRESURROUND ^p
+   [Erase Surround         *<eCC>]^c^c^pYQ_ERASESURROUND ^p
+   [--]
+   [Bent Arrow             *<aaW>]^c^c^pYQ_BENTARROW ^p
+   [<-Entrance Arrow         *<aaE>]^c^c^pYQ_ENTRANCEARROW ^p
+[->Indexer Symbols]
+   [Index of Indexers   *****<sy>]^c^c^pYQ_SLDINDEXERS ^p
+   [--]
+   [Section Symbol 1     ***<sy1>]^c^c^pYQ_IDENTIFIER1 ^p
+   [Section Symbol 2     ***<sy2>]^c^c^pYQ_IDENTIFIER2 ^p
+   [Section Symbol 3     ***<sy3>]^c^c^pYQ_IDENTIFIER3 ^p
+   [Elev Indexer 4 in 1   ***<i0>]^c^c^pYQ_ELEVINDEXER4IN1 ^p
+   [Elev Indexer 1         **<i1>]^c^c^pYQ_ELEVINDEXER1 ^p
+   [Elev Indexer 2         **<i2>]^c^c^pYQ_ELEVINDEXER2 ^p
+   [Elev Indexer 3         **<i3>]^c^c^pYQ_ELEVINDEXER3 ^p
+   [Elev Indexer 4         **<i4>]^c^c^pYQ_ELEVINDEXER4 ^p
+   [--]
+   [Detail DWG Symbol 1   **<xt1>]^c^c^pYQ_DETAILSYMBOL1 ^p
+   [Detail DWG Symbol 2   **<xt2>]^c^c^pYQ_DETAILSYMBOL2 ^p
+   [--]
+   [User Indexer 1        ***<s1>]^c^c^pYQ_INDEXER1 ^p
+   [User Indexer 2        ***<s2>]^c^c^pYQ_INDEXER2 ^p
+   [User Indexer 3        ***<s3>]^c^c^pYQ_INDEXER3 ^p
+   [User Indexer 4        ***<s4>]^c^c^pYQ_INDEXER4 ^p
+   [User Indexer 5        ***<s5>]^c^c^pYQ_INDEXER5 ^p
+   [User Indexer 6        ***<s6>]^c^c^pYQ_INDEXER6 ^p
+   [User Indexer 7        ***<s7>]^c^c^pYQ_INDEXER7 ^p
+   [User Indexer 8        ***<s8>]^c^c^pYQ_INDEXER8 ^p
+   [User Indexer 9        ***<s9>]^c^c^pYQ_INDEXER9 ^p
+   [--]
+   [Arrow Leader        ****<aax>]^c^c^pYQ_LEADER ^p
+   [Multi-Point Leader ****<aaxx>]^c^c^pYQ_MPTLEADER ^p
+   [Vertical MP Leader ****<aayy>]^c^c^pYQ_MPTLEADER_Y ^p
+   [Add/Remove Vertexes  ***<aav>]^c^c^pYQ_LEADER_VERTEXES ^p
+   [Add Leader Arrows    ***<aaJ>]^c^c^pYQ_LEADER_ADDARROW ^p
+   [--]
+   [<-Deco. Drawing Title   ***<bt>]^c^c^pYQ_DRAWINGTITLE ^p
+[->Statistics Tools]
+   [Index of Statistics *****<tj>]^c^c^pYQ_SLDSTATISTICS ^p
+   [--]
+   [Select Easy         *****<ss>]^c^c^pXC_SS ^p
+   [--]
+   [Auto Serial Number *****<aBH>]^c^c^pYQ_AUTOSERIALNUMBER ^p
+   [Empty Table           **<Kbg>]^c^c^pYQ_EMPTYTABLE ^p
+   [Table Texts Aligning  **<bgZ>]^c^c^pYQ_TEXT2CENTER ^p
+   [Accumulate Cell Area  **<tMJ>]^c^c^pYQ_CALC_CELLAREA ^p
+   [Convert to Excel   *****<T2E>]^c^c^pYQ_TEXTS2EXCEL ^p
+   [Texts to ACAD TABLE   **<Zbg>]^c^c^pYQ_TEXTS2ACADTABLE ^p
+   [--]
+   [Win/Door List      *****<MCB>]^c^c^pYQ_WINDOOR_LIST ^p
+   [Blocks List           **<bbL>]^c^c^pYQ_BLOCK_LIST ^p
+   [Block Attr/Dyna List  **<sxL>]^c^c^pYQ_BLOCKATT_LIST ^p
+   [Collect Coordinates   **<zZB>]^c^c^pYQ_COORDINATE_LIST ^p
+   [Collect any Strings  ***<ttQ>]^c^c^pYQ_STRING_LIST ^p
+   [Material List         **<CLB>]^c^c^pYQ_MATERIAL_LIST ^p
+   [--]
+   [Accumulate Area       ***<MJ>]^c^c^pYQ_CALC_SUMAREA ^p
+   [Area to Text          **<pMJ>]^c^c^pYQ_ASSO_AREA ^p
+   [Accumulate Perimeter   **<ZC>]^c^c^pYQ_CALC_PERIMETER ^p
+   [Perimeter to Text     **<pZC>]^c^c^pYQ_ASSO_PERIMETER ^p
+   [Calculate Weight       **<ZL>]^c^c^pYQ_CALWEIGHT ^p
+   [--]
+   [Building Area Stat.   **<FTB>]^c^c^pYQ_AREASTAT ^p
+   [--]
+   [~===Mathematical operation=== ]
+   [Addition(+)             **<+>]^c^c^pYQ_CALC_ADDITION ^p
+   [Subtraction(-)           *<->]^c^c^pYQ_CALC_SUBTRATION ^p
+   [Multiplication(*)        *<*>]^c^c^pYQ_CALC_MULTIPLICATION ^p
+   [Division(/)              *</>]^c^c^pYQ_CALC_DIVISION ^p
+   [--]
+   [<-Eval. Expression        *<JS>]^c^c^pYQ_CALC_EXPRESSION ^p
+[--]
+[->Text Content]
+   [->Preset Text Height]
+     [ 2   mm](progn (setq YQ_T_HEIGHT 2.0)(setvar "TEXTSIZE" (* (getvar "dimscale") 2.0)))
+     [ 2.5 mm](progn (setq YQ_T_HEIGHT 2.5)(setvar "TEXTSIZE" (* (getvar "dimscale") 2.5)))
+     [ 3   mm](progn (setq YQ_T_HEIGHT 3.0)(setvar "TEXTSIZE" (* (getvar "dimscale") 3.0)))
+     [ 3.5 mm](progn (setq YQ_T_HEIGHT 3.5)(setvar "TEXTSIZE" (* (getvar "dimscale") 3.5)))
+     [ 4   mm](progn (setq YQ_T_HEIGHT 4.0)(setvar "TEXTSIZE" (* (getvar "dimscale") 4.0)))
+     [ 5   mm](progn (setq YQ_T_HEIGHT 5.0)(setvar "TEXTSIZE" (* (getvar "dimscale") 5.0)))
+     [ 6   mm](progn (setq YQ_T_HEIGHT 6.0)(setvar "TEXTSIZE" (* (getvar "dimscale") 6.0)))
+     [ 8   mm](progn (setq YQ_T_HEIGHT 8.0)(setvar "TEXTSIZE" (* (getvar "dimscale") 8.0)))
+     [10   mm](progn (setq YQ_T_HEIGHT 10.0)(setvar "TEXTSIZE" (* (getvar "dimscale") 10.0)))
+     [12   mm](progn (setq YQ_T_HEIGHT 12.0)(setvar "TEXTSIZE" (* (getvar "dimscale") 12.0)))
+     [15   mm](progn (setq YQ_T_HEIGHT 15.0)(setvar "TEXTSIZE" (* (getvar "dimscale") 15.0)))
+     [20   mm](progn (setq YQ_T_HEIGHT 20.0)(setvar "TEXTSIZE" (* (getvar "dimscale") 20.0)))
+     [<-30   mm](progn (setq YQ_T_HEIGHT 30.0)(setvar "TEXTSIZE" (* (getvar "dimscale") 30.0)))
+   [--]
+   [User Dictionary    *****<DIC>]^c^c^pYQ_USERDICT ^p
+   [Translate Text         **<FY>]^c^c^pYQ_TRANSLATE ^p
+   [Update Text From List   *<EQ>]^c^c^pYQ_UPDTEXTLIST ^p
+   [--]
+   [Input a Text         ****<tt>]^c^c^pYQ_TEXT ^p
+   [Modify any Text     ****<ttE>]^c^c^pYQ_SUPEREDIT ^p
+   [Dictionary to Text    **<ttG>]^c^c^pYQ_DICT2TEXT ^p
+   [Create/Input Texts   ***<cTT>]^c^c^pYQ_HZ_TEXT ^p
+   [Edit/Output Texts    ***<CED>]^c^c^pYQ_HZ_EDIT ^p
+   [--]
+   [Replace/Calculate  *****<ttR>]^c^c^pYQ_TEXT_REPLACE ^p
+   [Replace Substrings   **<ttRS>]^c^c^pYQ_REPLACE_SUBSTRS ^p
+   [--]
+   [Join Texts           ***<ttA>]^c^c^pYQ_TEXT_APPEND ^p
+   [Merge multi-line Text **<ttJ>]^c^c^pYQ_JTEXT ^p
+   [Break Text           ***<ttB>]^c^c^pYQ_TEXT_BREAK2 ^p
+   [Text to Characters    *<ttBB>]^c^c^pYQ_ETEXT ^p
+   [--]
+   [Increment Duplicate  **<1234>]^c^c^pYQ_ARRAY_NUMBERS ^p
+   [Add Increment         **<INC>]^c^c^pYQ_INCREASE_NUMBERS ^p
+   [Increase Texts        **<ttZ>]^c^c^pYQ_INCREASE_TEXT ^p
+   [Seek Specific Text    **<ttF>]^c^c^pYQ_FINDTEXT ^p
+   [--]
+   [<-Exchange Content        *<JH>]^c^c^pYQ_EXCHANGELOCATION ^p
+[->Text Other]
+   [New Text Style       ***<ttN>]^c^c^pYQ_SLDSTYLES ^p
+   [--]
+   [Set Current Style    ***<ttS>]^c^c^pYQ_TEXT_CSTYLE ^p
+   [Update Text by Style ***<ttU>]^c^c^pYQ_TEXT_UPDATE ^p
+   [Auto Replace Fonts   **<ttRF>]^c^c^pYQ_REPLACEFONTS ^p
+   [--]
+   [Change Texts       *****<ttC>]^c^c^pYQ_CHANGETEXT ^p
+   [Change height/aspect  **<ttW>]^c^c^pYQ_TEXT_WIDTH ^p
+   [Reorder Table Texts ***<ttPX>]^c^c^pYQ_REORDERTEXTS ^p
+   [--]
+   [Text Alignment Left    *<ttL>]^c^c^pYQ_TEXT_ALIGNMENTLEFT ^p
+   [Text Alignment Right  *<ttLL>]^c^c^pYQ_TEXT_ALIGNMENTRIGHT ^p
+   [Restore Mirrored/Rot. *<ttRR>]^c^c^pYQ_TEXT_RESTOREMIRR ^p
+   [--]
+   [Convert Texts/Attdefs *<ttSX>]^c^c^pYQ_TEXT2ATTDEF ^p
+   [<-Explode Texts to Lines *<ttX>]^c^c^pYQ_TXTEXP ^p
+[->Dimension Draw]
+   [Set Dwg/sym. Scale  *****<sd>]^c^c^pYQ_SETDWGSCALE ^p
+   [--]
+   [Dim Linear           ****<dd>]^c^c^pYQ_DIM_LINEAR ^p
+   [Dim Aligned           **<ddX>]^c^c^pYQ_DIM_ALIGNED ^p
+   [Dim Baseline          **<ddB>]^c^c^pYQ_DIM_BASELINE ^p
+   [Dim Radius            **<ddR>]^c^c^pYQ_DIM_RADIUS ^p
+   [Dim Diameter           *<ddJ>]^c^c^pYQ_DIM_DIAMETER ^p
+   [Dim Angular           *<ddAN>]^c^c^pYQ_DIM_ANGULAR ^p
+   [Dim Arc Length       **<ddAR>]^c^c^pYQ_DIM_ARC ^p
+   [Dim Quick             **<ddQ>]^c^c^pYQ_DIM_QDIM ^p
+   [--]
+   [Dim Closed Space    ****<ddZ>]^c^c^pYQ_DIM_CLOSEDSPACE ^p
+   [Dim Closed Pline   ****<ddZZ>]^c^c^pYQ_DIM_PLINE ^p
+   [Dim Pline/Lines     ***<ddSS>]^c^c^pYQ_DIM_POLYGONSIDES ^p
+   [--]
+   [Dim of Axis/Windows  ***<ddW>]^c^c^pYQ_DIM_AXISWD ^p
+   [Dim of Blks/Walls    **<ddWW>]^c^c^pYQ_DIM_BLOCKS ^p
+   [Dim of Cupboard       *<ddGZ>]^c^c^pYQ_DIM_CUPBOARD ^p
+   [--]
+   [Dim of Steps          *<ddST>]^c^c^pYQ_DIM_STAIRS ^p
+   [Dim Break at Inters. **<ddXX>]^c^c^pYQ_DIM_INTPTS ^p
+   [Dim Chord at Inters.  *<ddCC>]^c^c^pYQ_DIM_CURVEINTPTS ^p
+   [Dim Arc at Inters.    *<ddAC>]^c^c^pYQ_DIM_ARCPARTS ^p
+   [Dim Rebuild by texts  **<ddP>]^c^c^pYQ_DIM_REARRANGE ^p
+   [Dim Merge Baseline   **<ddBB>]^c^c^pYQ_DIM_MERGEBASE ^p
+   [--]
+   [Switch Dim Layer      *<ddER>]^c^c^pYQ_DIM_SWITCHLAYER ^p
+   [Set Current DimStyle ***<ddS>]^c^c^pYQ_DIM_CSTYLE ^p
+   [Dim Update by Style  ***<ddU>]^c^c^pYQ_DIM_UPDATE ^p
+   [<-Switch YQ Dimstyle   **<ddYQ>]^c^c^pYQ_DIM_SWITCHSTYLE ^p
+[->Dimension Modify]
+   [Adjust TEXT Position***<ddAA>]^c^c^pYQ_DIM_ADJUST ^p
+   [--]
+   [Extend Dim Line      ***<ddE>]^c^c^pYQ_DIM_EXTEND ^p
+   [Split/Ext into Many ****<dd2>]^c^c^pYQ_DIM_DIVIDE ^p
+   [Merge Dims          ****<dd1>]^c^c^pYQ_DIM_MERGE ^p
+   [Align Definition Pts ***<ddV>]^c^c^pYQ_DIM_ALIGN ^p
+   [Align Dims MLine    ***<ddVV>]^c^c^pYQ_DIM_ALIGNDIMLINE ^p
+   [Align Feet Points     **<ddL>]^c^c^pYQ_DIM_ALIGNPOINTS ^p
+   [Fix Extension lengths *<ddLE>]^c^c^pYQ_DIM_EXTLEN ^p
+   [Adjust Base Spacing   **<ddY>]^c^c^pYQ_DIM_ADJUSTBASE ^p
+   [Batch Base Spacing  ***<ddYY>]^c^c^pYQ_DIM_BATCHBASE ^p
+   [Show Extension Lines  *<dd2E>]^c^c^pYQ_DIM_SHOWEXTLINE ^p
+   [Aligned or Rotated    *<ddRA>]^c^c^pYQ_DIM_SWITCH_AR ^p
+   [--]
+   [Overturn Dim Text    **<ddFZ>]^c^c^pYQ_DIM_REVERSE ^p
+   [Lock the Text Content **<ddF>]^c^c^pYQ_DIM_FIX ^p
+   [Reset Default Value  **<ddRE>]^c^c^pYQ_DIM_RECOVER ^p
+   [Units to Meter        **<ddM>]^c^c^pYQ_DIM_MMTOM ^p
+   [Rounds Dim Value      **<dd0>]^c^c^pYQ_DIM_ROUND ^p
+   [New Dim Text           *<ddN>]^c^c^pYQ_DIM_NEWTEXT ^p
+   [--]
+   [Move Dim Text         **<ddT>]^c^c^pYQ_DIM_TEDIT ^p
+   [<-Reset Dim Text Home   **<ddH>]^c^c^pYQ_DIM_HOME ^p
+[--]
+[->Curve Tools]
+   [Add/Remove Vertexes  ***<xxV>]^c^c^pYQ_PLINE_VERTEXES ^p
+   [Optimize Plines      ***<xxY>]^c^c^pYQ_PLINE_OPTIMIZE ^p
+   [--]
+   [Pline Segment to Arc  **<xxA>]^c^c^pYQ_LINE2ARC ^p
+   [Pline Segment Width    *<xxW>]^c^c^pYQ_PLSEGMENT_WIDTH ^p
+   [Pline Segment Offset   *<xxS>]^c^c^pYQ_PLSEGMENT_OFFSET ^p
+   [--]
+   [Join Pline/Arc/Line ****<xxJ>]^c^c^pYQ_PLINE_JOIN ^p
+   [Close Pline/Arc/Line ***<xxC>]^c^c^pYQ_PLINE_CLOSE ^p
+   [Reverse Curve Direct.**<xxFZ>]^c^c^pYQ_PLINE_REVERSE ^p
+   [W-Pline to Wireframe  **<xxF>]^c^c^pYQ_WPLINE2WIREFRAME ^p
+   [Connect 2Pline Vertexes*<LJX>]^c^c^pYQ_CONNECTVERTEXES ^p
+   [--]
+   [Find Border/Outline   ***<lk>]^c^c^pYQ_OUTLINE ^p
+   [Find Inner Contours   **<nlk>]^c^c^pYQ_INNERCONTOURS ^p
+   [Contours + Offset    **<nlks>]^c^c^pYQ_INNEROFFSET ^p
+   [Convert to Freehand    **<hw>]^c^c^pYQ_TOFREEHAND ^p
+   [--]
+   [Break to Equal Parts  ***<DF>]^c^c^pYQ_BREAK_EQUAL ^p
+   [Divide by 2 Points    **<DFx>]^c^c^pYQ_2PTSDIVIDE ^p
+   [--]
+   [Ellipse to Arcs       **<e2a>]^c^c^pYQ_ELLIPSE2ARC ^p
+   [Curve to Arc Pline    **<cca>]^c^c^pYQ_SPLINE2APLINE ^p
+   [Curve to Line Pline   **<ccx>]^c^c^pYQ_SPLINE2XPLINE ^p
+   [Curve to Bowstrings   *<ccxx>]^c^c^pYQ_CURVE2BOWSTRING ^p
+   [<-Curve Projection       *<ccy>]^c^c^pYQ_CURVEPROJECTION ^p
+[->Extra Tools]
+   [Number Lines Manage *****<vv>]^c^c^pYQ_NUMBERLINES ^p
+   [--]
+   [Double Lines        *****<xd>]^c^c^pYQ_DOUBLELINE ^p
+   [Double Lines Scissor*****<TX>]^c^c^pYQ_TRIMDOUBLELINE ^p
+   [Double Line Thickness***<xdT>]^c^c^pYQ_DLINETHICKNESS ^p
+   [To Double Lines      ***<xxd>]^c^c^pYQ_2DOUBLELINE ^p
+   [Double lines Offset    *<xdo>]^c^c^pYQ_DLINE_OFFSET ^p
+   [Axis of Double Lines   **<ce>]^c^c^pYQ_DOUBLELINEAXIS ^p
+   [--]
+   [Objects Alignment    ****<DQ>]^c^c^pYQ_ALIGNMENT ^p
+   [Leaders Alignment   ***<aaDQ>]^c^c^pYQ_LEADERALIGN ^p
+   [Align Frame with Line *<tkTZ>]^c^c^pYQ_ALIGNFRAME ^p
+   [--]
+   [Break by a Knife      ***<bD>]^c^c^pYQ_BREAKBYKNIFE ^p
+   [Break by Knives      ***<bDD>]^c^c^pYQ_BREAKBYKNIVES ^p
+   [Break/Erase in Frames ***<bX>]^c^c^pYQ_BREAKANDERASE ^p
+   [Copy/Paste the Detail ***<QG>]^c^c^pYQ_PASTEDETAILDWG ^p
+   [--]
+   [Transform           *****<TF>]^c^c^pYQ_TRANSFORM ^p
+   [--]
+   [Bounding Box            *<JX>]^c^c^pYQ_BOUNDINGBOX ^p
+   [tO Bounding Box         *<WK>]^c^c^pYQ_TOBOUNDINGBOX ^p
+   [Minimum Bounding Box  **<xJX>]^c^c^pYQ_MINBOUNDINGBOX ^p
+   [--]
+   [Turn Objects         ****<FZ>]^c^c^pYQ_OVERTURN ^p
+   [Exchange Location       *<JH>]^c^c^pYQ_EXCHANGELOCATION ^p
+   [Copy to Points       **<DZBZ>]^c^c^pYQ_COPY2POINTS ^p
+   [<-Assistant Lines       **<FZX>]^c^c^pYQ_ASSISTANTLINES ^p
+[->Modify Plus]
+   [Scale for Each        **<aSC>]^c^c^pYQ_SCALE_EACH ^p
+   [Rotate for Each       **<aRT>]^c^c^pYQ_ROTATE_EACH ^p
+   [Mirror for Each        *<aMI>]^c^c^pYQ_MIRROR_EACH ^p
+   [XY Scale              **<scX>]^c^c^pYQ_SCALEXYZ ^p
+   [--]
+   [Dynamic Copy           **<cv>]^c^c^pYQ_DYNAMICCOPY ^p
+   [Stretch with Distance  *<STd>]^c^c^pYQ_STRETCH_D ^p
+   [Move with a Distance    *<vd>]^c^c^pYQ_MOVE_D ^p
+   [Memorial Move           *<vR>]^c^c^pYQ_MOVE_MEMORIAL ^p
+   [Memorial Copy           *<cR>]^c^c^pYQ_COPY_MEMORIAL ^p
+   [--]
+   [Super Offset           **<SF>]^c^c^pYQ_SUPEROFFSET ^p
+   [Extend to Point/Line ***<exX>]^c^c^pYQ_EXTENDTOPOINT ^p
+   [--]
+   [Link Arc/Line/Pline   ***<FF>]^c^c^pYQ_JOIN_ARCLINE ^p
+   [Connect 2 Group Lines ***<FX>]^c^c^pYQ_CONNECT2GLINES ^p
+   [--]
+   [Add/Remove Wipeout    ***<ZZ>]^c^c^pYQ_QUICKWIPEOUT ^p
+   [--]
+   [Break All Objects     ***<bA>]^c^c^pYQ_BREAKALL ^p
+   [Break and Erase Remains *<TE>]^c^c^pYQ_BREAKERASE ^p
+   [Break At A Point        *<BB>]^c^c^pYQ_BREAK_AT ^p
+   [<-Break At 2 Points       *<BF>]^c^c^pYQ_BREAK_AT2 ^p
+[->Check and Correct]
+   [Clear Z-Axis of Objs   **<Z0>]^c^c^pYQ_CLEAR_Z ^p
+   [Clear Z-Axis in Blks **<bbZ0>]^c^c^pYQ_BLOCK_Z0 ^p
+   [--]
+   [Eliminate Overlapping ***<RD>]^c^c^pYQ_REMOVE_DUPLICATE ^p
+   [Connect Lines/Arcs    ***<LX>]^c^c^pYQ_LINKLINEARC ^p
+   [Remove Pt/Short-Lines   *<LC>]^c^c^pYQ_LINECLEAN ^p
+   [Adjust Objs to Grid    **<JZ>]^c^c^pYQ_ADJUST ^p
+   [Oblique Correction    **<xgz>]^c^c^pYQ_OBLIQUE_CORRECTION ^p
+   [--]
+   [Dialog Merge         ***<xHB>]^c^c^pYQ_MERGE ^p
+   [Purge All in DWG      **<puA>]^c^c^pYQ_PURGEALL ^p
+   [Purge DWGs in Folder   *<puF>]^c^c^pYQ_PURGEFILES ^p
+   [--]
+   [Check Object's Color   *<CYS>]^c^c^pYQ_CHECKCOLOR ^p
+   [Find Non-Ortho Lines   *<BPX>]^c^c^pYQ_FINDNONORTHOLINES ^p
+   [Find Unmatch WCS Plan   *<UM>]^c^c^pYQ_UCSMATCH ^p
+   [Orthoaxis Check        *<BCZ>]^c^c^pYQ_CHECKORTHOAXIS ^p
+   [--]
+   [<-Revcloud                *<YX>]^c^c^pYQ_REVCLOUD ^p
+[--]
+[->Block and Attribute]
+   [Heap Trees             **<zw>]^c^c^pYQ_HEAPTREES ^p
+   [Landscape Analyzing  ****<hj>]^c^c^pYQ_LANDSCAPE ^p
+   [--]
+   [Change BK Layer/Color **<BB0>]^c^c^pYQ_BLOCK2BYLAYER ^p
+   [Change Base Point     **<bbI>]^c^c^pYQ_BLOCKBASEPOINT ^p
+   [Block Rename          **<bbR>]^c^c^pYQ_BLOCK2NEWNAME ^p
+   [Block Batch Rename     *<bbG>]^c^c^pYQ_BLOCK_BATCHRENAME ^p
+   [Create Detail Block   **<bbD>]^c^c^pYQ_QUICKDETAILBLOCK ^p
+   [Set Block Scale        *<bbS>]^c^c^pYQ_BLOCKSCALE ^p
+   [Write Out Blocks       *<bbW>]^c^c^pYQ_BLOCK_WRITEOUT ^p
+   [Replace by DWG       **<bbTD>]^c^c^pYQ_REPLACEBYDWG ^p
+   [--]
+   [Create Block Quickly  **<BBn>]^c^c^pYQ_QUICKNEWBLOCK ^p
+   [Append to a Block      *<bbA>]^c^c^pYQ_BLOCK_ADD ^p
+   [Erase Object of Block  *<bbE>]^c^c^pYQ_BLOCK_REMOVE ^p
+   [Copy Objs from a Block *<bbC>]^c^c^pYQ_BLOCK_COPY ^p
+   [Add/Del Block Wipeout**<bbZZ>]^c^c^pYQ_BLOCKWIPEOUT ^p
+   [--]
+   [Create Minsert Block  *<BBjm>]^c^c^pYQ_CREATE_MINSERT ^p
+   [Explode Minsert Blocks *<BBx>]^c^c^pYQ_EXPLODE_MINSERT ^p
+   [Explode Nest Blocks  **<bbXX>]^c^c^pYQ_EXPLODE_NBLOCK ^p
+   [--]
+   [Block Text to Attr   **<bbsx>]^c^c^pYQ_BLOCKTEXT2ATT ^p
+   [Modify Attributes    ***<sxG>]^c^c^pYQ_MODIFY_ATT ^p
+   [Increase Attributes  ***<sxZ>]^c^c^pYQ_INCREASE_ATT ^p
+   [Change Attributes    ***<sxC>]^c^c^pYQ_CHANGEATTS ^p
+   [Change Attr to Text   **<sxT>]^c^c^pYQ_BLOCKATT2TEXT ^p
+   [Erase Attr in Block    *<sxE>]^c^c^pYQ_ERASE_BLKATT ^p
+   [--]
+   [Block Viewer        *****<BV>]^c^c^pYQ_BLOCKVIEWER ^p
+   [Block Viewer1        ***<BV1>]^c^c^pYQ_BLOCKVIEWER1 ^p
+   [Block Viewer2        ***<BV2>]^c^c^pYQ_BLOCKVIEWER2 ^p
+   [<-Block Viewer3        ***<BV3>]^c^c^pYQ_BLOCKVIEWER3 ^p
+[->Hatching & Linetype]
+   [Hatching Shortcuts   **<hhSC>]^c^c^pYQ_HATCHKEYS ^p
+   [Change Hatching&Scale***<xtc>]^c^c^pYQ_HATCHINGSCALE ^p
+   [Quick Hatching       ****<TC>]^c^c^pYQ_HATCH_QUICK ^p
+   [Hatching by Template ***<TCT>]^c^c^pYQ_HATCH_MATCH ^p
+   [Param./Slide Hatch *****<TCC>]^c^c^pYQ_HATCH_SLIDE ^p
+   [--]
+   [Set Hatch Base Point  **<hhI>]^c^c^pYQ_HATCH_NEWBASE ^p
+   [Hatching Angle        **<hhA>]^c^c^pYQ_HATCH_ANGLE ^p
+   [Hatching Border        *<hhB>]^c^c^pYQ_HATCH_BORDER ^p
+   [Hatching Clipping      *<hhJ>]^c^c^pYQ_HATCH_CLIPPING ^p
+   [Split Hatching         *<hhX>]^c^c^pYQ_HATCH_SPLIT ^p
+   [Hatching Union         *<hhU>]^c^c^pYQ_HATCH_UNION ^p
+   [Hatching Disassociate *<hhGL>]^c^c^pYQ_HATCH_DISASSO ^p
+   [--]
+   [Fill in Walls/Columns **<wwF>]^c^c^pYQ_FILL_WALL ^p
+   [--]
+   [Make Hatch .pat 1mm  ****<MP>]^c^c^pYQ_MKPAT ^p
+   [Make Hatch .pat 1:1 ****<MP1>]^c^c^pYQ_MKPAT1 ^p
+   [Make .pat by Hatch   ***<MPP>]^c^c^pYQ_MKPAT_BYHATCH ^p
+   [--]
+   [Linetype Shortcuts   **<ltSC>]^c^c^pYQ_LTYPEKEYS ^p
+   [Change Linetype&Scale ***<xt>]^c^c^pYQ_LTSCALE ^p
+   [Linetype Switch       **<xtS>]^c^c^pYQ_LTSWITCH ^p
+   [Replace LT Scale     **<pLTS>]^c^c^pYQ_PUTLTSCALE ^p
+   [Make Letter Linetype ***<MLT>]^c^c^pYQ_MKLINETYPE ^p
+   [<-Load Linetypes        **<lLT>]^c^c^pYQ_LOADLINETYPE ^p
+[->Layer Tools]
+   [Change to Current Lay.**<erC>]^c^c^pYQ_LAYER_2CURRENT ^p
+   [Make a New Layer      **<erN>]^c^c^pYQ_LAYER_NEW ^p
+   [Set Current Layer    ***<erS>]^c^c^pYQ_LAYER_CURRENT ^p
+   [Save/Restore layers    *<erR>]^c^c^pYQ_LAYER_SAVERESTORE ^p
+   [--]
+   [Isolate Layers       ***<erD>]^c^c^pYQ_LAYER_ISO ^p
+   [Turn Off Layers      ***<erF>]^c^c^pYQ_LAYER_OFF ^p
+   [Turn Off All Layers ***<erAF>]^c^c^pYQ_LAYER_OFF_ALL ^p
+   [Turn On Layers       ***<erA>]^c^c^pYQ_LAYER_ON ^p
+   [Turn On All Layers  ***<erAA>]^c^c^pYQ_LAYER_ON_ALL ^p
+   [All Layers On/Off      *<erV>]^c^c^pYQ_LAYER_ON2OFF ^p
+   [--]
+   [Lock Layers            *<erL>]^c^c^pYQ_LAYER_LOCK ^p
+   [Isolate & Lock       **<erDL>]^c^c^pYQ_LAYER_ISO_LOCK ^p
+   [Unlock Layers          *<erU>]^c^c^pYQ_LAYER_UNLOCK ^p
+   [--]
+   [Freeze Layers          *<erZ>]^c^c^pYQ_LAYER_FREEZE ^p
+   [Isolate & Freeze      *<erDZ>]^c^c^pYQ_LAYER_ISO_FREEZE ^p
+   [Thaw out Layers        *<erT>]^c^c^pYQ_LAYER_THAW ^p
+   [--]
+   [Turn Off in Block     *<erBF>]^c^c^pYQ_LAYER_NOFF ^p
+   [Freeze in Block       *<erBZ>]^c^c^pYQ_LAYER_NFREEZE ^p
+   [Thaw/Unlock/Open All  *<erER>]^c^c^pYQ_LAYER_SHOWALL ^p
+   [--]
+   [Batch Replace Layers **<erTD>]^c^c^pYQ_LAYER_REPLACE ^p
+   [Layers Batch Rename    *<erG>]^c^c^pYQ_LAYER_BATCHRENAME ^p
+   [Merge Layers          **<erM>]^c^c^pYQ_MERGE_LAYER ^p
+   [Form Layers by Color  *<c2er>]^c^c^pYQ_FORMLAYBYCOLOR ^p
+   [Layer Shortcuts      **<erSC>]^c^c^pYQ_LAYERKEYS ^p
+   [Color Shortcuts        *<erK>]^c^c^pYQ_COLORKEYS ^p
+   [--]
+   [Output Layer Text File *<erO>]^c^c^pYQ_OUTPUTLAYERS ^p
+   [<-Input Layer Text File  *<erI>]^c^c^pYQ_INPUTLAYERS ^p
+[->Viewport/Layout Tools]
+   [Vport Layer Manager  ***<vvC>]^c^c^pYQ_VPLAYER_MANAGER ^p
+   [Freeze Viewport Layers *<vvZ>]^c^c^pYQ_VPLAYER_FREEZE ^p
+   [Freeze Block VP Layer *<vvBZ>]^c^c^pYQ_VPLAYER_NFREEZE ^p
+   [Thaw out VPort Layers  *<vvT>]^c^c^pYQ_VPLAYER_THAW ^p
+   [Isolate VP's Layers  **<vvDZ>]^c^c^pYQ_VPLAYER_ISO ^p
+   [Isolate Other VPLayers*<vvZZ>]^c^c^pYQ_VPLAYER_ISOALL ^p
+   [Grayed VP Layers       *<vvH>]^c^c^pYQ_VPLAYER_GRAY ^p
+   [Recover VP Layer Color*<vvHF>]^c^c^pYQ_VPLAYER_RECOVER ^p
+   [--]
+   [New Viewport           *<vvN>]^c^c^pYQ_VIEWPORT_NEW ^p
+   [Viewport Split        **<vv2>]^c^c^pYQ_VIEWPORT_SPLIT ^p
+   [Viewport from Model Sp.*<mVV>]^c^c^pYQ_MODEL2VIEWPORT ^p
+   [Curve to Viewport     *<xxVV>]^c^c^pYQ_CURVE2VIEWPORT ^p
+   [Set Viewport Scale    **<vvS>]^c^c^pYQ_VIEWPORT_SCALE ^p
+   [VP's Content Sync   ***<vvDQ>]^c^c^pYQ_VIEWPORT_SYNC ^p
+   [Viewport Pan           *<vvP>]^c^c^pYQ_VIEWPORT_PAN ^p
+   [--]
+   [Lock Viewports         *<vvL>]^c^c^pYQ_VIEWPORT_LOCK ^p
+   [Lock All Viewports    *<vvAL>]^c^c^pYQ_VIEWPORT_LOCK_ALL ^p
+   [Unlock Viewports       *<vvU>]^c^c^pYQ_VIEWPORT_UNLOCK ^p
+   [Unlock All Viewports  *<vvAU>]^c^c^pYQ_VIEWPORT_UNLOCK_ALL ^p
+   [--]
+   [Turn Off Viewports     *<vvF>]^c^c^pYQ_VIEWPORT_OFF ^p
+   [Turn Off All Viewports*<vvAF>]^c^c^pYQ_VIEWPORT_OFF_ALL ^p
+   [Turn On Viewports      *<vvA>]^c^c^pYQ_VIEWPORT_ON ^p
+   [Turn On All Viewports *<vvAA>]^c^c^pYQ_VIEWPORT_ON_ALL ^p
+   [--]
+   [Copy to Paper Space  **<vvBB>]^c^c^pYQ_VIEWPORT2PSPACE ^p
+   [--]
+   [Rename Layouts         *<tzG>]^c^c^pYQ_LAYOUT_BATCHRENAME ^p
+   [Frames to Layouts      *<tzF>]^c^c^pYQ_FRAMES2LAYOUTS ^p
+   [Frame Range Divideds  *<tzFG>]^c^c^pYQ_FRAMEDIVIDED ^p
+   [--]
+   [Elevation 4 UCS dir.   *<vvD>]^c^c^pYQ_UCSDIR ^p
+   [Snapshot of a View      *<KZ>]^c^c^pYQ_SNAPSHOT ^p
+   [<-Hyperlink & Views    ***<CLJ>]^c^c^pYQ_HYPERLINK ^p
+[--]
+[->Matching Brush]
+   [Match/Replace Block ****<ssB>]^c^c^pYQ_MATCH_BLOCK ^p
+   [Match Dynamic Props    *<ssD>]^c^c^pYQ_MATCH_DYNPROPS ^p
+   [Match Rotation Angle  **<ssA>]^c^c^pYQ_MATCH_ROTATION ^p
+   [--]
+   [Match Layer         ***<ssER>]^c^c^pYQ_MATCH_LAYER ^p
+   [Match Color            *<ssC>]^c^c^pYQ_MATCH_COLOR ^p
+   [Match Layer and Color *<ssCC>]^c^c^pYQ_MATCH_LAYERCOLOR ^p
+   [Match Viewport Layers *<ssVV>]^c^c^pYQ_MATCH_VPLAYER ^p
+   [--]
+   [Match Text Content   ***<ssT>]^c^c^pYQ_MATCH_CONTENT ^p
+   [Match Text Style      *<ssST>]^c^c^pYQ_MATCH_STYLE ^p
+   [Match Text Height      *<ssH>]^c^c^pYQ_MATCH_TEXTHEIGHT ^p
+   [Match Text by Att. Tag *<ssQ>]^c^c^pYQ_MATCH_TAGTEXT ^p
+   [--]
+   [Match Width of Pline ***<ssW>]^c^c^pYQ_MATCH_WIDTH ^p
+   [Match LineTyple       *<ssXT>]^c^c^pYQ_MATCH_LINETYPE ^p
+   [<-Match Thickness       *<ssTH>]^c^c^pYQ_MATCH_THICKNESS ^p
+[->Other Tools]
+   [Batch-Plot          ****<bPT>]^c^c^pYQ_BATCHPLOT ^p
+   [--]
+   [Drawing Catalog    ****<dwgL>]^c^c^pYQ_CATALOG ^p
+   [Output DWGs Batches  **<dwgS>]^c^c^pYQ_OUTPUTDWGS ^p
+   [Arrange Frames/DWGs  **<dwgA>]^c^c^pYQ_ARRANGEDWGS ^p
+   [--]
+   [Hide Entities        ***<eeF>]^c^c^pYQ_HIDESELECT ^p
+   [Hide Unselected Ent. ***<eeD>]^c^c^pYQ_HIDEUNSELECT ^p
+   [Display Temp. Hidden ***<eeA>]^c^c^pYQ_DISPLAYHIDE ^p
+   [Display All Entities **<eeAA>]^c^c^pYQ_DISPLAYALL ^p
+   [--]
+   [Create a Group        **<ggN>]^c^c^pYQ_QUICKGROUP ^p
+   [Explodes a Group      **<ggX>]^c^c^pYQ_EXPLODEGROUP ^p
+   [Append to a Group      *<ggA>]^c^c^pYQ_GROUP_ADD ^p
+   [Erase from a Group     *<ggE>]^c^c^pYQ_GROUP_REMOVE ^p
+   [Separate from a Group  *<ggS>]^c^c^pYQ_GROUP_SEPARATE ^p
+   [Purge Groups           *<ggP>]^c^c^pYQ_PURGEGROUP ^p
+   [--]
+   [Switch YQArch Dynamic *<dtYQ>]^c^c^pYQ_SWITCH_DYNAMIC ^p
+   [Excel Clipboard Points *<ZTB>]^c^c^pYQ_DRAWCLIPBOARD ^p
+   [To Google Earth    *****<a2k>]^c^c^pYQ_ACAD2KML ^P
+   [--]
+   [YQArch Command Finder  *<zml>]^c^c^pYQ_COMMANDFINDER ^P
+   [<-Last YQArch Command     *<qq>]^c^c^pYQ_LASTYQCMD ^P
+
+
+
+
+
+
+
+***POP38
+**yqarch
+[源泉设计]
+[->系统设定]
+   [用户系统配置   ****<yqsys>]^c^c^pYQ_SYS_SETTING ^P
+   [源泉设计命令总览 *****<yq>]^c^c^pYQARCH ^P
+   [打开源泉图像按钮    *<tbA>]^c^c^pYQ_TOOLBARSON ^P
+   [关闭源泉图像按钮   *<tbAF>]^c^c^pYQ_TOOLBARSOFF ^P
+   [--]
+   [选择当前用户     *<yquser>]^c^c^pYQ_SETUSER ^P
+   [切换提示语言     *<yqlang>]^c^c^pYQ_LANG ^P
+   [设定绘图单位    *<yqunits>]^c^c^pYQ_SETUNITS ^P
+   [加载源泉菜单     *<yqmenu>]^c^c^pYQ_MENU ^P
+   [--]
+   [设置图纸/符号比例*****<sd>]^c^c^pYQ_SETDWGSCALE ^P
+   [绘制图框 (A0-A4)    **<tk>]^c^c^pYQ_DWGFRAME ^p
+   [--]
+   [详细帮助         *<yqhelp>]^c^c^pYQ_HELP ^P
+   [源泉版本号        *<yqver>]^c^c^pYQ_VER ^P
+   [源泉设计网站      *<yqweb>]^c^c^pYQ_WEBSITE ^P
+   [截图教程网站              ]^c^c^p(yq_browser "http://bigd.ys168.com") ^P
+   [赞助与支持       *<donate>]^c^c^pYQ_DONATE ^P
+   [--]
+   [源泉建筑群1:     119803917]^c^c^p(yq_qqgroup "119803917") ^P
+   [源泉建筑群2:      41952877]^c^c^p(yq_qqgroup "41952877") ^P
+   [源泉建筑群3:      41195287]^c^c^p(yq_qqgroup "41195287") ^P
+   [源泉装饰群4:     390339771]^c^c^p(yq_qqgroup "390339771") ^P
+   [源泉装饰群6:     363273173]^c^c^p(yq_qqgroup "363273173") ^P
+   [源泉装饰群8(荐): 758743236]^c^c^p(yq_qqgroup "758743236") ^P
+   [作者QQ:575825448,970274029]^c^c^p(yq_qqmsg "970274029") ^P
+   [给作者发电邮              ]^c^c^p(yq_mailto "575825448@qq.com") ^P
+   [--]
+   [关于源泉        *<yqabout>]^c^c^pYQ_ABOUT ^p
+   [--]
+   [<-卸载源泉设计   *<yquninst>]^c^c^pYQ_UNINSTALL ^P
+[--]
+[->平面墙柱]
+   [画轴线               *<ax>]^c^c^pYQ_AXISLINE ^p
+   [简单轴线网         **<zxw>]^c^c^pYQ_GRIDAXIS ^p
+   [--]
+   [画墙             *****<ww>]^c^c^pYQ_WALL ^p
+   [智能墙剪         *****<TW>]^c^c^pYQ_TRIM_FIX_WALL ^p
+   [修正墙体厚度     ****<wwT>]^c^c^pYQ_WALL_CHGTHK ^p
+   [轴线变墙          ***<Xww>]^c^c^pYQ_LINE2WALL ^p
+   [墙净距偏移         **<wwO>]^c^c^pYQ_WALL_CDOFFSET ^p
+   [--]
+   [求墙中轴线         **<wwA>]^c^c^pYQ_WALL2AXIS ^p
+   [填充墙、柱         **<wwF>]^c^c^pYQ_FILL_WALL ^p
+   [--]
+   [画方柱子         ****<zzR>]^c^c^pYQ_R_COLUMN ^p
+   [画圆柱子         ****<zzC>]^c^c^pYQ_O_COLUMN ^p
+   [画L型柱子         ***<zzL>]^c^c^pYQ_L_COLUMN ^p
+   [画T型柱子         ***<zzT>]^c^c^pYQ_T_COLUMN ^p
+   [画十字型柱子      ***<zzX>]^c^c^pYQ_C_COLUMN ^p
+   [--]
+   [轴线布置柱子      **<zzBZ>]^c^c^pYQ_AXIS_COLUMN ^p
+   [变成柱子          **<xxzz>]^c^c^pYQ_PLINE2COLUMN ^p
+   [填充柱子           **<zzF>]^c^c^pYQ_FILL_COLUMN ^p
+   [--]
+   [<-删除墙柱门窗      ****<EW>]^c^c^pYQ_ERASE_WALL ^p
+[->平面门窗]
+   [墙或轴线开普通门 *****<AD>]^c^c^pYQ_HOLE_DOOR ^p
+   [两点画普通门      ***<AD2>]^c^c^pYQ_DOOR ^p
+   [墙或轴线开普通窗 *****<AW>]^c^c^pYQ_HOLE_WIN ^p
+   [两点画普通窗      ***<AW2>]^c^c^pYQ_WIN ^p
+   [普通门窗置换      ****<TD>]^c^c^pYQ_WINDOOR_REPLACE ^p
+   [墙上开门洞          **<HO>]^c^c^pYQ_HOLE ^p
+   [--]
+   [墙或轴线开门套门*****<ADT>]^c^c^pYQ_HOLE_POCKETDOOR ^p
+   [两点画门套门     ***<ADT2>]^c^c^pYQ_POCKETDOOR ^p
+   [替代为门套门     ****<TDD>]^c^c^pYQ_POCKETDOOR_REPLACE ^p
+   [--]
+   [墙或轴线开参数窗 *****<WD>]^c^c^pYQ_HOLE_WINDOW ^p
+   [两点画参数窗      ***<WD2>]^c^c^pYQ_WINDOW ^p
+   [替代为参数窗     ****<TDW>]^c^c^pYQ_WINDOW_REPLACE ^p
+   [--]
+   [墙上开转角窗    *****<WDZ>]^c^c^pYQ_HOLE_CORNERWINDOW ^p
+   [转角窗替换样式   ****<TDZ>]^c^c^pYQ_CWINDOW_REPLACE ^p
+   [--]
+   [门槛线管理         **<MKX>]^c^c^pYQ_DOORSILL ^p
+   [门洞线管理         **<MDX>]^c^c^pYQ_DOOROPENING ^p
+   [--]
+   [线变平面窗         **<xWD>]^c^c^pYQ_LINE2WINDOW ^p
+   [修改门窗宽度      ****<CW>]^c^c^pYQ_WIDTH_WINDOOR ^p
+   [左右移动门窗      ****<VW>]^c^c^pYQ_MOVE_WINDOOR ^p
+   [--]
+   [修正门窗和柱子    ****<XF>]^c^c^pYQ_REPAIR ^p
+   [移动并修正        ****<vX>]^c^c^pYQ_MOVEANDFIX ^p
+   [复制并修正        ****<cX>]^c^c^pYQ_COPYANDFIX ^p
+   [镜像并修正       ****<rrX>]^c^c^pYQ_MIRRORANDFIX ^p
+   [--]
+   [翻转门窗          ****<FZ>]^c^c^pYQ_OVERTURN ^p
+   [刷子.匹配门窗    ****<ssB>]^c^c^pYQ_MATCH_BLOCK ^p
+   [--]
+   [删除墙柱门窗      ****<EW>]^c^c^pYQ_ERASE_WALL ^p
+   [--]
+   [<-门窗编号管理      ***<wbh>]^c^c^pYQ_WINSERIALNUMBER ^p
+[--]
+[->建筑构件]
+   [建筑构件集       *****<gj>]^c^c^pYQ_SLDCOMPONENTS ^p
+   [--]
+   [自动扶梯平面立面 ****<ltF>]^c^c^pYQ_ESCALATOR ^p
+   [--]
+   [矩形楼梯间平面   ****<ltJ>]^c^c^pYQ_STAIRCASE_PLAN ^p
+   [弧形楼梯平面      ***<ltA>]^c^c^pYQ_ARCSTAIR_PLAN ^p
+   [电梯轿厢平面       **<DTJ>]^c^c^pYQ_LIFT_PLAN ^p
+   [--]
+   [平开门立面       ****<adE>]^c^c^pYQ_DOOR_ELEVATION ^p
+   [平开门剖面       ****<adS>]^c^c^pYQ_DOOR_SECTION ^p
+   [绘制凸窗剖面     ****<wtS>]^c^c^pYQ_BAYWIN_SECTION ^p
+   [窗户立面         ****<wdE>]^c^c^pYQ_WINDOW_ELEVATION ^p
+   [窗户剖面           **<wdS>]^c^c^pYQ_WINDOW_SECTION ^p
+   [百叶窗立面剖面      **<BY>]^c^c^pYQ_SHUTTER ^p
+   [幕墙玻璃剖面       **<mBL>]^c^c^pYQ_CURTAINGLASS ^p
+   [--]
+   [线框变窗户立面    ***<wdD>]^c^c^pYQ_LINES2WINELEV ^p
+   [门窗编号变立面框   **<t2w>]^c^c^pYQ_SN2WINELEV ^p
+   [幕墙立面           ***<MQ>]^c^c^pYQ_CURTAINWALL ^p
+   [幕/隔墙剖面        **<MQS>]^c^c^pYQ_GLASS_PARTITION ^p
+   [扶手栏杆立面       ***<LG>]^c^c^pYQ_BANISTER ^p
+   [--]
+   [楼梯间剖面       ****<ltP>]^c^c^pYQ_STAIRCASE_SECTION ^p
+   [拉线踏步          **<lxtb>]^c^c^pYQ_STEP_SECTION ^p
+   [--]
+   [绘制防水层剖面     **<FSC>]^c^c^pYQ_WATERPROOF ^p
+   [<-绘制粉刷层剖面       *<FN>]^c^c^pYQ_STUCCO ^p
+[->装饰构件]
+   [装饰构件集       *****<zs>]^c^c^pYQ_SLDDECORATION ^p
+   [--]
+   [家具洁具平面布置  *****<JJ>]^c^c^pYQ_AUTOFURNITURE ^p
+   [厕所浴室平面布置  *****<WC>]^c^c^pYQ_ARRANGEWC ^p
+   [--]
+   [衣柜平面            **<YG>]^c^c^pYQ_CHESTPLAN ^p
+   [窗帘平面           **<CLP>]^c^c^pYQ_CURTAINPLAN ^p
+   [偏移石膏线平面     **<SGX>]^c^c^pYQ_PLASTERSTRINGPLAN ^p
+   [简易柜子平面         *<GZ>]^c^c^pYQ_CUPBOARDPLAN ^p
+   [简易柜子立面       **<GZE>]^c^c^pYQ_CUPBOARDELEV ^p
+   [--]
+   [石头板剖面        ***<stB>]^c^c^pYQ_STONETILE ^p
+   [木方架子剖面         *<MF>]^c^c^pYQ_WOODENFRAME ^p
+   [层板阵列           **<CBZ>]^c^c^pYQ_ARRAY_BOARDS ^p
+   [--]
+   [木工板剖面          *<MGB>]^c^c^pYQ_BLOCKBOARD ^p
+   [夹板剖面             *<JB>]^c^c^pYQ_PLYWOOD ^p
+   [木地板剖面          *<MDB>]^c^c^pYQ_WOODFLOORING ^p
+   [玻璃剖面             *<BL>]^c^c^pYQ_GLASS ^p
+   [石膏板剖面        ***<SGB>]^c^c^pYQ_GYPSUMBOARD ^p
+   [暗藏灯槽剖面     ***<THDC>]^c^c^pYQ_LIGHTTROUGH ^p
+   [轻钢龙骨石膏板隔墙  **<GQ>]^c^c^pYQ_PARTITIONWALL ^p
+   [--]
+   [型钢截面             *<XG>]^c^c^pYQ_FORMEDSTEEL ^p
+   [角钢架子剖面        *<JGJ>]^c^c^pYQ_IRONFRAME ^p
+   [--]
+   [保温棉剖面          *<BWM>]^c^c^pYQ_INSULATION ^p
+   [绘制焊缝             *<HF>]^c^c^pYQ_WELDINGLINE ^p
+   [绘制软管             *<RG>]^c^c^pYQ_HOSE ^p
+   [绘制管线             *<GX>]^c^c^pYQ_PIPE ^p
+   [--]
+   [板上方孔洞           *<KD>]^c^c^pYQ_BOARDHOLE ^p
+   [圆柱影线            *<YZX>]^c^c^pYQ_CYLINDERSHADOW ^p
+   [画背栓孔           **<BSK>]^c^c^pYQ_BACKBOLTHOLE ^p
+   [--]
+   [平面灯具布置         *<DJ>]^c^c^pYQ_AUTOLAMPS ^p
+   [满天星随机铺满      *<MTX>]^c^c^pYQ_RANDOMSPREAD ^p
+   [<-生成室内立面框架   ***<LM>]^c^c^pYQ_INDOORELEV ^p
+[->建筑符号]
+   [建筑符号集       *****<fh>]^c^c^pYQ_SLDSYMBOLS ^p
+   [--]
+   [自动轴号尺寸线  *****<aZH>]^c^c^pYQ_AUTO_AXIS_DIM ^p
+   [连续轴号尺寸线    ****<ZH>]^c^c^pYQ_SYMBOL_AXIS_C ^p
+   [--]
+   [建筑坐标          ****<ZB>]^c^c^pYQ_GEODESIC_COORDINATES ^p
+   [建筑标高          ****<BG>]^c^c^pYQ_DESIGNED_ELEVATION ^p
+   [三维等高线标高      *<xBG>]^c^c^pYQ_CONTOUR_ELEVATION ^p
+   [--]
+   [平面剖切符号       **<pqf>]^c^c^pYQ_SYMBOL_SECTIONPLANE ^p
+   [断面符号           **<dmf>]^c^c^pYQ_SYMBOL_SECTIONCUTTER ^p
+   [坡度符号            **<PD>]^c^c^pYQ_SYMBOL_GRADIENT ^p
+   [折断线              **<ZX>]^c^c^pYQ_DISCONNECTION_LINE ^p
+   [圆管剖线            *<GPX>]^c^c^pYQ_PIPECUTTING ^p
+   [对称轴              *<dcz>]^c^c^pYQ_SYMMETRY_AXIS ^p
+   [中心线              *<zxx>]^c^c^pYQ_CENTRAL_LINE ^p
+   [--]
+   [画电线半圆跨线      *<aCC>]^c^c^pYQ_WIRESURROUND ^p
+   [删电线半圆跨线      *<eCC>]^c^c^pYQ_ERASESURROUND ^p
+   [--]
+   [弯箭头              *<aaW>]^c^c^pYQ_BENTARROW ^p
+   [<-出入口箭头          *<aaE>]^c^c^pYQ_ENTRANCEARROW ^p
+[->索引标题]
+   [索引标题集       *****<sy>]^c^c^pYQ_SLDINDEXERS ^p
+   [--]
+   [剖切索引号1       ***<sy1>]^c^c^pYQ_IDENTIFIER1 ^p
+   [剖切索引号2       ***<sy2>]^c^c^pYQ_IDENTIFIER2 ^p
+   [剖切索引号3       ***<sy3>]^c^c^pYQ_IDENTIFIER3 ^p
+   [立面索引号4合1     ***<i0>]^c^c^pYQ_ELEVINDEXER4IN1 ^p
+   [立面索引号 1        **<i1>]^c^c^pYQ_ELEVINDEXER1 ^p
+   [立面索引号 2        **<i2>]^c^c^pYQ_ELEVINDEXER2 ^p
+   [立面索引号 3        **<i3>]^c^c^pYQ_ELEVINDEXER3 ^p
+   [立面索引号 4        **<i4>]^c^c^pYQ_ELEVINDEXER4 ^p
+   [--]
+   [详图符号1          **<xt1>]^c^c^pYQ_DETAILSYMBOL1 ^p
+   [详图符号2          **<xt2>]^c^c^pYQ_DETAILSYMBOL2 ^p
+   [--]
+   [自设索引符1        ***<s1>]^c^c^pYQ_INDEXER1 ^p
+   [自设索引符2        ***<s2>]^c^c^pYQ_INDEXER2 ^p
+   [自设索引符3        ***<s3>]^c^c^pYQ_INDEXER3 ^p
+   [自设索引符4        ***<s4>]^c^c^pYQ_INDEXER4 ^p
+   [自设索引符5        ***<s5>]^c^c^pYQ_INDEXER5 ^p
+   [自设索引符6        ***<s6>]^c^c^pYQ_INDEXER6 ^p
+   [自设索引符7        ***<s7>]^c^c^pYQ_INDEXER7 ^p
+   [自设索引符8        ***<s8>]^c^c^pYQ_INDEXER8 ^p
+   [自设索引符9        ***<s9>]^c^c^pYQ_INDEXER9 ^p
+   [--]
+   [箭头引线         ****<aax>]^c^c^pYQ_LEADER ^p
+   [多点引线        ****<aaxx>]^c^c^pYQ_MPTLEADER ^p
+   [竖直多点引线    ****<aayy>]^c^c^pYQ_MPTLEADER_Y ^p
+   [引线增删顶点      ***<aav>]^c^c^pYQ_LEADER_VERTEXES ^p
+   [引线加箭头        ***<aaJ>]^c^c^pYQ_LEADER_ADDARROW ^p
+   [--]
+   [<-装饰图标题文字     ***<bt>]^c^c^pYQ_DRAWINGTITLE ^p
+[->统计工具]
+   [统计工具集       *****<tj>]^c^c^pYQ_SLDSTATISTICS ^p
+   [--]
+   [选择易           *****<ss>]^c^c^pXC_SS ^p
+   [--]
+   [自动编号        *****<aBH>]^c^c^pYQ_AUTOSERIALNUMBER ^p
+   [等宽空表格         **<Kbg>]^c^c^pYQ_EMPTYTABLE ^p
+   [表格单元文字居中   **<bgZ>]^c^c^pYQ_TEXT2CENTER ^p
+   [统计区域面积       **<tMJ>]^c^c^pYQ_CALC_CELLAREA ^p
+   [输出到表格软件  *****<T2E>]^c^c^pYQ_TEXTS2EXCEL ^p
+   [文字表格转表格     **<Zbg>]^c^c^pYQ_TEXTS2ACADTABLE ^p
+   [--]
+   [统计门窗表      *****<MCB>]^c^c^pYQ_WINDOOR_LIST ^p
+   [统计图块           **<bbL>]^c^c^pYQ_BLOCK_LIST ^p
+   [统计块属性和动态参 **<sxL>]^c^c^pYQ_BLOCKATT_LIST ^p
+   [找坐标并列表       **<zZB>]^c^c^pYQ_COORDINATE_LIST ^p
+   [提取字串并列表    ***<ttQ>]^c^c^pYQ_STRING_LIST ^p
+   [提取生成材料表     **<CLB>]^c^c^pYQ_MATERIAL_LIST ^p
+   [--]
+   [统计面积总面积     ***<MJ>]^c^c^pYQ_CALC_SUMAREA ^p
+   [文字关联面积       **<pMJ>]^c^c^pYQ_ASSO_AREA ^p
+   [统计周长总周长      **<ZC>]^c^c^pYQ_CALC_PERIMETER ^p
+   [文字关联周长       **<pZC>]^c^c^pYQ_ASSO_PERIMETER ^p
+   [根据密度计算重量    **<ZL>]^c^c^pYQ_CALWEIGHT ^p
+   [--]
+   [建筑面积分摊表     **<FTB>]^c^c^pYQ_AREASTAT ^p
+   [--]
+   [~==数字文字的“加减乘除”==]
+   [数字的和(＋)         **<+>]^c^c^pYQ_CALC_ADDITION ^p
+   [数字的差(－)          *<->]^c^c^pYQ_CALC_SUBTRATION ^p
+   [数字的积(×)          *<*>]^c^c^pYQ_CALC_MULTIPLICATION ^p
+   [数字的商(÷)          *</>]^c^c^pYQ_CALC_DIVISION ^p
+   [--]
+   [<-计算数学表达式       *<JS>]^c^c^pYQ_CALC_EXPRESSION ^p
+[--]
+[->文字内容]
+   [->调整说明文字高]
+     [ 2   毫米](progn (setq YQ_T_HEIGHT 2.0)(setvar "TEXTSIZE" (* (getvar "dimscale") 2.0)))
+     [ 2.5 毫米](progn (setq YQ_T_HEIGHT 2.5)(setvar "TEXTSIZE" (* (getvar "dimscale") 2.5)))
+     [ 3   毫米](progn (setq YQ_T_HEIGHT 3.0)(setvar "TEXTSIZE" (* (getvar "dimscale") 3.0)))
+     [ 3.5 毫米](progn (setq YQ_T_HEIGHT 3.5)(setvar "TEXTSIZE" (* (getvar "dimscale") 3.5)))
+     [ 4   毫米](progn (setq YQ_T_HEIGHT 4.0)(setvar "TEXTSIZE" (* (getvar "dimscale") 4.0)))
+     [ 5   毫米](progn (setq YQ_T_HEIGHT 5.0)(setvar "TEXTSIZE" (* (getvar "dimscale") 5.0)))
+     [ 6   毫米](progn (setq YQ_T_HEIGHT 6.0)(setvar "TEXTSIZE" (* (getvar "dimscale") 6.0)))
+     [ 8   毫米](progn (setq YQ_T_HEIGHT 8.0)(setvar "TEXTSIZE" (* (getvar "dimscale") 8.0)))
+     [10   毫米](progn (setq YQ_T_HEIGHT 10.0)(setvar "TEXTSIZE" (* (getvar "dimscale") 10.0)))
+     [12   毫米](progn (setq YQ_T_HEIGHT 12.0)(setvar "TEXTSIZE" (* (getvar "dimscale") 12.0)))
+     [15   毫米](progn (setq YQ_T_HEIGHT 15.0)(setvar "TEXTSIZE" (* (getvar "dimscale") 15.0)))
+     [20   毫米](progn (setq YQ_T_HEIGHT 20.0)(setvar "TEXTSIZE" (* (getvar "dimscale") 20.0)))
+     [<-30   毫米](progn (setq YQ_T_HEIGHT 30.0)(setvar "TEXTSIZE" (* (getvar "dimscale") 30.0)))
+   [--]
+   [用户词库管理    *****<DIC>]^c^c^pYQ_USERDICT ^p
+   [中英翻译选中文字    **<FY>]^c^c^pYQ_TRANSLATE ^p
+   [列表刷新文字         *<EQ>]^c^c^pYQ_UPDTEXTLIST ^p
+   [--]
+   [输入单行文本      ****<tt>]^c^c^pYQ_TEXT ^p
+   [编辑各种文字     ****<ttE>]^c^c^pYQ_SUPEREDIT ^p
+   [用字典换字         **<ttG>]^c^c^pYQ_DICT2TEXT ^p
+   [新建或输入文本    ***<cTT>]^c^c^pYQ_HZ_TEXT ^p
+   [编辑或输出文本    ***<CED>]^c^c^pYQ_HZ_EDIT ^p
+   [--]
+   [文字替换计算替换*****<ttR>]^c^c^pYQ_TEXT_REPLACE ^p
+   [替换多个文字子串  **<ttRS>]^c^c^pYQ_REPLACE_SUBSTRS ^p
+   [--]
+   [连接多个文字      ***<ttA>]^c^c^pYQ_TEXT_APPEND ^p
+   [分行合并多文字     **<ttJ>]^c^c^pYQ_JTEXT ^p
+   [打断文字为两段    ***<ttB>]^c^c^pYQ_TEXT_BREAK2 ^p
+   [打散文字为字符     *<ttBB>]^c^c^pYQ_ETEXT ^p
+   [--]
+   [递增复制数值文字  **<1234>]^c^c^pYQ_ARRAY_NUMBERS ^p
+   [数字统一加增量     **<INC>]^c^c^pYQ_INCREASE_NUMBERS ^p
+   [递增数字文字       **<ttZ>]^c^c^pYQ_INCREASE_TEXT ^p
+   [寻找特定文字       **<ttF>]^c^c^pYQ_FINDTEXT ^p
+   [--]
+   [<-交换文本内容         *<JH>]^c^c^pYQ_EXCHANGELOCATION ^p
+[->文字其他]
+   [新建字体样式      ***<ttN>]^c^c^pYQ_SLDSTYLES ^p
+   [--]
+   [设定当前文字样式  ***<ttS>]^c^c^pYQ_TEXT_CSTYLE ^p
+   [选样式更新文字    ***<ttU>]^c^c^pYQ_TEXT_UPDATE ^p
+   [自动替换缺文字档  **<ttRF>]^c^c^pYQ_REPLACEFONTS ^p
+   [--]
+   [批量文字修改排版*****<ttC>]^c^c^pYQ_CHANGETEXT ^p
+   [修改高度/高宽比    **<ttW>]^c^c^pYQ_TEXT_WIDTH ^p
+   [文字表格重新排序 ***<ttPX>]^c^c^pYQ_REORDERTEXTS ^p
+   [--]
+   [对正方式改为左下    *<ttL>]^c^c^pYQ_TEXT_ALIGNMENTLEFT ^p
+   [对正方式改为右下   *<ttLL>]^c^c^pYQ_TEXT_ALIGNMENTRIGHT ^p
+   [文字镜像/角度恢复  *<ttRR>]^c^c^pYQ_TEXT_RESTOREMIRR ^p
+   [--]
+   [转换文字或属性定义 *<ttSX>]^c^c^pYQ_TEXT2ATTDEF ^p
+   [<-炸碎文字为线段      *<ttX>]^c^c^pYQ_TXTEXP ^p
+[->标注绘制]
+   [设图纸/符号比例  *****<sd>]^c^c^pYQ_SETDWGSCALE ^p
+   [--]
+   [水平垂直标注      ****<dd>]^c^c^pYQ_DIM_LINEAR ^p
+   [对齐标注           **<ddX>]^c^c^pYQ_DIM_ALIGNED ^p
+   [基线标注           **<ddB>]^c^c^pYQ_DIM_BASELINE ^p
+   [半径标注           **<ddR>]^c^c^pYQ_DIM_RADIUS ^p
+   [直径标注            *<ddJ>]^c^c^pYQ_DIM_DIAMETER ^p
+   [角度标注           *<ddAN>]^c^c^pYQ_DIM_ANGULAR ^p
+   [弧长标注          **<ddAR>]^c^c^pYQ_DIM_ARC ^p
+   [快速标注           **<ddQ>]^c^c^pYQ_DIM_QDIM ^p
+   [--]
+   [闭合空间自动标注 ****<ddZ>]^c^c^pYQ_DIM_CLOSEDSPACE ^p
+   [闭合多段线标注  ****<ddZZ>]^c^c^pYQ_DIM_PLINE ^p
+   [标注多段线/线边长***<ddSS>]^c^c^pYQ_DIM_POLYGONSIDES ^p
+   [--]
+   [门窗及轴线标注    ***<ddW>]^c^c^pYQ_DIM_AXISWD ^p
+   [图块及内墙标注    **<ddWW>]^c^c^pYQ_DIM_BLOCKS ^p
+   [立面柜子标注       *<ddGZ>]^c^c^pYQ_DIM_CUPBOARD ^p
+   [--]
+   [楼梯踏步等分标注   *<ddST>]^c^c^pYQ_DIM_STAIRS ^p
+   [拉线按交点标注    **<ddXX>]^c^c^pYQ_DIM_INTPTS ^p
+   [找曲线交点标注弦长 *<ddCC>]^c^c^pYQ_DIM_CURVEINTPTS ^p
+   [找圆弧交点标注弧长 *<ddAC>]^c^c^pYQ_DIM_ARCPARTS ^p
+   [选数字排列重建标注 **<ddP>]^c^c^pYQ_DIM_REARRANGE ^p
+   [合并绘制基线标注  **<ddBB>]^c^c^pYQ_DIM_MERGEBASE ^p
+   [--]
+   [切换标注图层       *<ddER>]^c^c^pYQ_DIM_SWITCHLAYER ^p
+   [设定当前标注样式  ***<ddS>]^c^c^pYQ_DIM_CSTYLE ^p
+   [选样式更新标注    ***<ddU>]^c^c^pYQ_DIM_UPDATE ^p
+   [<-切换强制源泉样式  **<ddYQ>]^c^c^pYQ_DIM_SWITCHSTYLE ^p
+[->标注修改]
+   [标注文字避让     ***<ddAA>]^c^c^pYQ_DIM_ADJUST ^p
+   [--]
+   [移动脚点          ***<ddE>]^c^c^pYQ_DIM_EXTEND ^p
+   [分裂扩展为多个   ****<dd2>]^c^c^pYQ_DIM_DIVIDE ^p
+   [标注合并         ****<dd1>]^c^c^pYQ_DIM_MERGE ^p
+   [排齐脚点界线      ***<ddV>]^c^c^pYQ_DIM_ALIGN ^p
+   [排齐界线          **<ddVV>]^c^c^pYQ_DIM_ALIGNDIMLINE ^p
+   [排齐脚点           **<ddL>]^c^c^pYQ_DIM_ALIGNPOINTS ^p
+   [统一标注界线长度   *<ddLE>]^c^c^pYQ_DIM_EXTLEN ^p
+   [修正基线间距       **<ddY>]^c^c^pYQ_DIM_ADJUSTBASE ^p
+   [批量基线间距     ***<ddYY>]^c^c^pYQ_DIM_BATCHBASE ^p
+   [显示2脚线          *<dd2E>]^c^c^pYQ_DIM_SHOWEXTLINE ^p
+   [转换为对齐或转角   *<ddRA>]^c^c^pYQ_DIM_SWITCH_AR ^p
+   [--]
+   [翻转标注文字      **<ddFZ>]^c^c^pYQ_DIM_REVERSE ^p
+   [固化标注文字       **<ddF>]^c^c^pYQ_DIM_FIX ^p
+   [标注恢复原值      **<ddRE>]^c^c^pYQ_DIM_RECOVER ^p
+   [单位转化为米       **<ddM>]^c^c^pYQ_DIM_MMTOM ^p
+   [修改标注精度(取整) **<dd0>]^c^c^pYQ_DIM_ROUND ^p
+   [键入新标注文字      *<ddN>]^c^c^pYQ_DIM_NEWTEXT ^p
+   [--]
+   [标注文字移位       **<ddT>]^c^c^pYQ_DIM_TEDIT ^p
+   [<-标注文字复位       **<ddH>]^c^c^pYQ_DIM_HOME ^p
+[--]
+[->曲线工具]
+   [多段线增删顶点    ***<xxV>]^c^c^pYQ_PLINE_VERTEXES ^p
+   [优化多段线顶点    ***<xxY>]^c^c^pYQ_PLINE_OPTIMIZE ^p
+   [--]
+   [多段线的段变弧     **<xxA>]^c^c^pYQ_LINE2ARC ^p
+   [多段线改段宽        *<xxW>]^c^c^pYQ_PLSEGMENT_WIDTH ^p
+   [偏移多段线的一段    *<xxS>]^c^c^pYQ_PLSEGMENT_OFFSET ^p
+   [--]
+   [连成多段线       ****<xxJ>]^c^c^pYQ_PLINE_JOIN ^p
+   [连成闭合多段线    ***<xxC>]^c^c^pYQ_PLINE_CLOSE ^p
+   [反转曲线方向      **<xxFZ>]^c^c^pYQ_PLINE_REVERSE ^p
+   [厚度多段线变线框   **<xxF>]^c^c^pYQ_WPLINE2WIREFRAME ^p
+   [连接两根多段线顶点  *<LJX>]^c^c^pYQ_CONNECTVERTEXES ^p
+   [--]
+   [求边界线/外轮廓线  ***<lk>]^c^c^pYQ_OUTLINE ^p
+   [求内部轮廓线       **<nlk>]^c^c^pYQ_INNERCONTOURS ^p
+   [求内轮廓+偏移     **<nlks>]^c^c^pYQ_INNEROFFSET ^p
+   [手绘效果线条抖动    **<hw>]^c^c^pYQ_TOFREEHAND ^p
+   [--]
+   [等分曲线           ***<DF>]^c^c^pYQ_BREAK_EQUAL ^p
+   [两点等分           **<DFx>]^c^c^pYQ_2PTSDIVIDE ^p
+   [--]
+   [用圆弧模拟椭圆     **<e2a>]^c^c^pYQ_ELLIPSE2ARC ^p
+   [曲线转圆弧多段线   **<cca>]^c^c^pYQ_SPLINE2APLINE ^p
+   [曲线转线段多段线   **<ccx>]^c^c^pYQ_SPLINE2XPLINE ^p
+   [等弦长分曲线       *<ccxx>]^c^c^pYQ_CURVE2BOWSTRING ^p
+   [<-求曲线投影线        *<ccy>]^c^c^pYQ_CURVEPROJECTION ^p
+[->特殊工具]
+   [数字行管理与应用 *****<vv>]^c^c^pYQ_NUMBERLINES ^p
+   [--]
+   [绘制双线         *****<xd>]^c^c^pYQ_DOUBLELINE ^p
+   [修剪双线         *****<TX>]^c^c^pYQ_TRIMDOUBLELINE ^p
+   [修正双线厚度      ***<xdT>]^c^c^pYQ_DLINETHICKNESS ^p
+   [单线变双线        ***<xxd>]^c^c^pYQ_2DOUBLELINE ^p
+   [双线净距偏移        *<xdo>]^c^c^pYQ_DLINE_OFFSET ^p
+   [求双线中轴线        **<ce>]^c^c^pYQ_DOUBLELINEAXIS ^p
+   [--]
+   [对齐图元          ****<DQ>]^c^c^pYQ_ALIGNMENT ^p
+   [箭头引线对齐     ***<aaDQ>]^c^c^pYQ_LEADERALIGN ^p
+   [图框按线长调整     *<tkTZ>]^c^c^pYQ_ALIGNFRAME ^p
+   [--]
+   [画线切割           ***<bD>]^c^c^pYQ_BREAKBYKNIFE ^p
+   [多线切割          ***<bDD>]^c^c^pYQ_BREAKBYKNIVES ^p
+   [打断删除框内图元   ***<bX>]^c^c^pYQ_BREAKANDERASE ^p
+   [切割提取大样图     ***<QG>]^c^c^pYQ_PASTEDETAILDWG ^p
+   [--]
+   [四边形及其他变形 *****<TF>]^c^c^pYQ_TRANSFORM ^p
+   [--]
+   [求矩形外框           *<JX>]^c^c^pYQ_BOUNDINGBOX ^p
+   [变矩形外框           *<WK>]^c^c^pYQ_TOBOUNDINGBOX ^p
+   [最小包裹矩形/外接圆**<xJX>]^c^c^pYQ_MINBOUNDINGBOX ^p
+   [--]
+   [随意翻转          ****<FZ>]^c^c^pYQ_OVERTURN ^p
+   [图元交换位置         *<JH>]^c^c^pYQ_EXCHANGELOCATION ^p
+   [按点阵布置图元    **<DZBZ>]^c^c^pYQ_COPY2POINTS ^p
+   [<-快捷辅助线         **<FZX>]^c^c^pYQ_ASSISTANTLINES ^p
+[->修改增强]
+   [图元原地缩放       **<aSC>]^c^c^pYQ_SCALE_EACH ^p
+   [图元原地旋转       **<aRT>]^c^c^pYQ_ROTATE_EACH ^p
+   [图元原地镜像        *<aMI>]^c^c^pYQ_MIRROR_EACH ^p
+   [XY不等比缩放       **<scX>]^c^c^pYQ_SCALEXYZ ^p
+   [--]
+   [动态拷贝            **<cV>]^c^c^pYQ_DYNAMICCOPY ^p
+   [定距拉伸            *<stD>]^c^c^pYQ_STRETCH_D ^p
+   [定距移动             *<vD>]^c^c^pYQ_MOVE_D ^p
+   [记忆移动             *<vR>]^c^c^pYQ_MOVE_MEMORIAL ^p
+   [记忆拷贝             *<cR>]^c^c^pYQ_COPY_MEMORIAL ^p
+   [--]
+   [同时偏移            **<SF>]^c^c^pYQ_SUPEROFFSET ^p
+   [延长到指定点或线段***<exX>]^c^c^pYQ_EXTENDTOPOINT ^p
+   [--]
+   [连接线/弧/多段线   ***<FF>]^c^c^pYQ_JOIN_ARCLINE ^p
+   [延长对接两组线段   ***<FX>]^c^c^pYQ_CONNECT2GLINES ^p
+   [--]
+   [快速加减遮罩       ***<ZZ>]^c^c^pYQ_QUICKWIPEOUT ^p
+   [--]
+   [交点齐断           ***<bA>]^c^c^pYQ_BREAKALL ^p
+   [框选打断并删除短线   *<TE>]^c^c^pYQ_BREAKERASE ^p
+   [一点打断             *<BB>]^c^c^pYQ_BREAK_AT ^p
+   [<-二点打断             *<BF>]^c^c^pYQ_BREAK_AT2 ^p
+[->检查修正]
+   [拍平图元(Z轴归零)   **<Z0>]^c^c^pYQ_CLEAR_Z ^p
+   [拍平图块(Z轴归零) **<bbZ0>]^c^c^pYQ_BLOCK_Z0 ^p
+   [--]
+   [消除重叠的相同图元 ***<RD>]^c^c^pYQ_REMOVE_DUPLICATE ^p
+   [连接断线/断圆弧线  ***<LX>]^c^c^pYQ_LINKLINEARC ^p
+   [清除点/短线/空字等   *<LC>]^c^c^pYQ_LINECLEAN ^p
+   [图元校正对齐到网格  **<JZ>]^c^c^pYQ_ADJUST ^p
+   [线段斜改正         **<xgz>]^c^c^pYQ_OBLIQUE_CORRECTION ^p
+   [--]
+   [杂项合并图层等    ***<xHB>]^c^c^pYQ_MERGE ^p
+   [清理无用项目       **<puA>]^c^c^pYQ_PURGEALL ^p
+   [清理文件夹dwg无用项 *<puF>]^c^c^pYQ_PURGEFILES ^p
+   [--]
+   [查图元颜色号        *<CYS>]^c^c^pYQ_CHECKCOLOR ^p
+   [找出不正交的线段    *<BPX>]^c^c^pYQ_FINDNONORTHOLINES ^p
+   [找不平行WCS平面图元  *<UM>]^c^c^pYQ_UCSMATCH ^p
+   [线段垂直检测        *<BCZ>]^c^c^pYQ_CHECKORTHOAXIS ^p
+   [--]
+   [<-修订云线             *<YX>]^c^c^pYQ_REVCLOUD ^p
+[--]
+[->图块属性]
+   [成片乔灌木          **<zw>]^c^c^pYQ_HEAPTREES ^p
+   [环境分析符号      ****<hj>]^c^c^pYQ_LANDSCAPE ^p
+   [--]
+   [改图块内图层/颜色  **<bb0>]^c^c^pYQ_BLOCK2BYLAYER ^p
+   [图块改基点         **<bbI>]^c^c^pYQ_BLOCKBASEPOINT ^p
+   [图块改名           **<bbR>]^c^c^pYQ_BLOCK2NEWNAME ^p
+   [图块批量改名        *<bbG>]^c^c^pYQ_BLOCK_BATCHRENAME ^p
+   [快速制作大样图图块 **<bbD>]^c^c^pYQ_QUICKDETAILBLOCK ^p
+   [设置图块(图框)比例  *<bbS>]^c^c^pYQ_BLOCKSCALE ^p
+   [批量导出图块文件    *<bbW>]^c^c^pYQ_BLOCK_WRITEOUT ^p
+   [用dwg替代图中块   **<bbTD>]^c^c^pYQ_REPLACEBYDWG ^p
+   [--]
+   [快速制作一个图块   **<bbN>]^c^c^pYQ_QUICKNEWBLOCK ^p
+   [往图块中加入图元    *<bbA>]^c^c^pYQ_BLOCK_ADD ^p
+   [删除块中一个图元    *<bbE>]^c^c^pYQ_BLOCK_REMOVE ^p
+   [从图块中复制图元    *<bbC>]^c^c^pYQ_BLOCK_COPY ^p
+   [图块加减遮罩      **<bbZZ>]^c^c^pYQ_BLOCKWIPEOUT ^p
+   [--]
+   [制作匿名加密块     *<bbJM>]^c^c^pYQ_CREATE_MINSERT ^p
+   [炸碎图块或匿名块    *<bbX>]^c^c^pYQ_EXPLODE_MINSERT ^p
+   [王炸嵌套块        **<bbXX>]^c^c^pYQ_EXPLODE_NBLOCK ^p
+   [--]
+   [块中文字转为属性  **<bbsx>]^c^c^pYQ_BLOCKTEXT2ATT ^p
+   [修改块内属性域    ***<sxG>]^c^c^pYQ_MODIFY_ATT ^p
+   [递增块内属性域    ***<sxZ>]^c^c^pYQ_INCREASE_ATT ^p
+   [批量处理块属性    ***<sxC>]^c^c^pYQ_CHANGEATTS ^p
+   [提取块内属性为文字 **<sxT>]^c^c^pYQ_BLOCKATT2TEXT ^p
+   [删除块内属性        *<sxE>]^c^c^pYQ_ERASE_BLKATT ^p
+   [--]
+   [图库管理         *****<BV>]^c^c^pYQ_BLOCKVIEWER ^p
+   [图库管理1         ***<BV1>]^c^c^pYQ_BLOCKVIEWER1 ^p
+   [图库管理2         ***<BV2>]^c^c^pYQ_BLOCKVIEWER2 ^p
+   [<-图库管理3        ***<BV3>]^c^c^pYQ_BLOCKVIEWER3 ^p
+[->填充线型]
+   [设置填充图案快捷键**<hhSC>]^c^c^pYQ_HATCHKEYS ^p
+   [特性.改填充及比例 ***<xtc>]^c^c^pYQ_HATCHINGSCALE ^p
+   [快捷填充          ****<TC>]^c^c^pYQ_HATCH_QUICK ^p
+   [选图案作为模板填充***<TCT>]^c^c^pYQ_HATCH_MATCH ^p
+   [参数及幻灯片填充*****<TCC>]^c^c^pYQ_HATCH_SLIDE ^p
+   [--]
+   [设/移Hatch基准点   **<hhI>]^c^c^pYQ_HATCH_NEWBASE ^p
+   [修改填充角度       **<hhA>]^c^c^pYQ_HATCH_ANGLE ^p
+   [重建填充图案边界    *<hhB>]^c^c^pYQ_HATCH_BORDER ^p
+   [剪裁填充图案        *<hhJ>]^c^c^pYQ_HATCH_CLIPPING ^p
+   [拆分填充图案        *<hhX>]^c^c^pYQ_HATCH_SPLIT ^p
+   [合并填充图案        *<hhU>]^c^c^pYQ_HATCH_UNION ^p
+   [去除填充关联       *<hhGL>]^c^c^pYQ_HATCH_DISASSO ^p
+   [--]
+   [填充墙、柱         **<wwF>]^c^c^pYQ_FILL_WALL ^p
+   [--]
+   [制作Hatch图案1mm  ****<MP>]^c^c^pYQ_MKPAT ^p
+   [制作Hatch图案1:1 ****<MP1>]^c^c^pYQ_MKPAT1 ^p
+   [提取制作填充图案  ***<MPP>]^c^c^pYQ_MKPAT_BYHATCH ^p
+   [--]
+   [设置线型快捷键    **<ltSC>]^c^c^pYQ_LTYPEKEYS ^p
+   [修改线型及比例     ***<xt>]^c^c^pYQ_LTSCALE ^p
+   [切换线型(含块内)   **<xtS>]^c^c^pYQ_LTSWITCH ^p
+   [替换同线型比例    **<pLTS>]^c^c^pYQ_PUTLTSCALE ^p
+   [制作字符线型      ***<mLT>]^c^c^pYQ_MKLINETYPE ^p
+   [<-载入线型           **<lLT>]^c^c^pYQ_LOADLINETYPE ^p
+[->图层工具]
+   [选图元改到当前层   **<erC>]^c^c^pYQ_LAYER_2CURRENT ^p
+   [新建图层           **<erN>]^c^c^pYQ_LAYER_NEW ^p
+   [设定当前图层      ***<erS>]^c^c^pYQ_LAYER_CURRENT ^p
+   [保存恢复图层开关状态*<erR>]^c^c^pYQ_LAYER_SAVERESTORE ^p
+   [--]
+   [关闭非选图层      ***<erD>]^c^c^pYQ_LAYER_ISO ^p
+   [关闭图层          ***<erF>]^c^c^pYQ_LAYER_OFF ^p
+   [关闭全部图层     ***<erAF>]^c^c^pYQ_LAYER_OFF_ALL ^p
+   [打开图层          ***<erA>]^c^c^pYQ_LAYER_ON ^p
+   [打开全部图层     ***<erAA>]^c^c^pYQ_LAYER_ON_ALL ^p
+   [切换全部图层开关    *<erV>]^c^c^pYQ_LAYER_ON2OFF ^p
+   [--]
+   [锁定图层            *<erL>]^c^c^pYQ_LAYER_LOCK ^p
+   [锁定非选图层      **<erDL>]^c^c^pYQ_LAYER_ISO_LOCK ^p
+   [解锁图层            *<erU>]^c^c^pYQ_LAYER_UNLOCK ^p
+   [--]
+   [冻结图层            *<erZ>]^c^c^pYQ_LAYER_FREEZE ^p
+   [冻结非选图层       *<erDZ>]^c^c^pYQ_LAYER_ISO_FREEZE ^p
+   [解冻图层            *<erT>]^c^c^pYQ_LAYER_THAW ^p
+   [--]
+   [关闭块内图层       *<erBF>]^c^c^pYQ_LAYER_NOFF ^p
+   [冻结块内图层       *<erBZ>]^c^c^pYQ_LAYER_NFREEZE ^p
+   [解冻/解锁/打开所有 *<erER>]^c^c^pYQ_LAYER_SHOWALL ^p
+   [--]
+   [批量替换图层      **<erTD>]^c^c^pYQ_LAYER_REPLACE ^p
+   [图层批量改名        *<erG>]^c^c^pYQ_LAYER_BATCHRENAME ^p
+   [合并图层           **<erM>]^c^c^pYQ_MERGE_LAYER ^p
+   [按图元颜色重新分层 *<c2er>]^c^c^pYQ_FORMLAYBYCOLOR ^p
+   [设置转换图层快捷键**<erSC>]^c^c^pYQ_LAYERKEYS ^p
+   [设置转换颜色快捷键  *<erK>]^c^c^pYQ_COLORKEYS ^p
+   [--]
+   [导出图层文件        *<erO>]^c^c^pYQ_OUTPUTLAYERS ^p
+   [<-导入图层文件        *<erI>]^c^c^pYQ_INPUTLAYERS ^p
+[->视口布局]
+   [管理视口图层      ***<vvC>]^c^c^pYQ_VPLAYER_MANAGER ^p
+   [冻结视口图层        *<vvZ>]^c^c^pYQ_VPLAYER_FREEZE ^p
+   [冻结视口块内图层   *<vvBZ>]^c^c^pYQ_VPLAYER_NFREEZE ^p
+   [解冻视口图层        *<vvT>]^c^c^pYQ_VPLAYER_THAW ^p
+   [隔离视口图层      **<vvDZ>]^c^c^pYQ_VPLAYER_ISO ^p
+   [隔离其他视口图层   *<vvZZ>]^c^c^pYQ_VPLAYER_ISOALL ^p
+   [视口图层变色        *<vvH>]^c^c^pYQ_VPLAYER_GRAY ^p
+   [还原视口层颜色     *<vvHF>]^c^c^pYQ_VPLAYER_RECOVER ^p
+   [--]
+   [新建视口            *<vvN>]^c^c^pYQ_VIEWPORT_NEW ^p
+   [拆分视口           **<vv2>]^c^c^pYQ_VIEWPORT_SPLIT ^p
+   [模型范围新建视口    *<mVV>]^c^c^pYQ_MODEL2VIEWPORT ^p
+   [闭合曲线变视口     *<xxVV>]^c^c^pYQ_CURVE2VIEWPORT ^p
+   [设定视口比例       **<vvS>]^c^c^pYQ_VIEWPORT_SCALE ^p
+   [对齐视口内容     ***<vvDQ>]^c^c^pYQ_VIEWPORT_SYNC ^p
+   [平移视口视图        *<vvP>]^c^c^pYQ_VIEWPORT_PAN ^p
+   [--]
+   [锁定视口            *<vvL>]^c^c^pYQ_VIEWPORT_LOCK ^p
+   [锁定全部视口       *<vvAL>]^c^c^pYQ_VIEWPORT_LOCK_ALL ^p
+   [解锁视口            *<vvU>]^c^c^pYQ_VIEWPORT_UNLOCK ^p
+   [解锁全部视口       *<vvAU>]^c^c^pYQ_VIEWPORT_UNLOCK_ALL ^p
+   [--]
+   [关闭视口            *<vvF>]^c^c^pYQ_VIEWPORT_OFF ^p
+   [关闭全部视口       *<vvAF>]^c^c^pYQ_VIEWPORT_OFF_ALL ^p
+   [打开视口            *<vvA>]^c^c^pYQ_VIEWPORT_ON ^p
+   [打开全部视口       *<vvAA>]^c^c^pYQ_VIEWPORT_ON_ALL ^p
+   [--]
+   [视口转布局块      **<vvBB>]^c^c^pYQ_VIEWPORT2PSPACE ^p
+   [--]
+   [布局批量改名        *<tzG>]^c^c^pYQ_LAYOUT_BATCHRENAME ^p
+   [选图框拆分为布局    *<tzF>]^c^c^pYQ_FRAMES2LAYOUTS ^p
+   [图纸绘图区分割     *<tzFG>]^c^c^pYQ_FRAMEDIVIDED ^p
+   [--]
+   [旋转立面视图4方向   *<vvD>]^c^c^pYQ_UCSDIR ^p
+   [视图快照             *<KZ>]^c^c^pYQ_SNAPSHOT ^p
+   [<-超链接及视图管理  ***<CLJ>]^c^c^pYQ_HYPERLINK ^p
+[--]
+[->特性刷子]
+   [刷子.匹配替换图块****<ssB>]^c^c^pYQ_MATCH_BLOCK ^p
+   [刷子.匹配动态块属性 *<ssD>]^c^c^pYQ_MATCH_DYNPROPS ^p
+   [刷子.匹配角度      **<ssA>]^c^c^pYQ_MATCH_ROTATION ^p
+   [--]
+   [刷子.匹配图层    ***<ssER>]^c^c^pYQ_MATCH_LAYER ^p
+   [刷子.匹配颜色       *<ssC>]^c^c^pYQ_MATCH_COLOR ^p
+   [刷子.匹配图层与颜色*<ssCC>]^c^c^pYQ_MATCH_LAYERCOLOR ^p
+   [刷子.匹配视口图层  *<ssVV>]^c^c^pYQ_MATCH_VPLAYER ^p
+   [--]
+   [刷子.匹配文字内容 ***<ssT>]^c^c^pYQ_MATCH_CONTENT ^p
+   [刷子.匹配文字样式  *<ssST>]^c^c^pYQ_MATCH_STYLE ^p
+   [刷子.匹配文字高度   *<ssH>]^c^c^pYQ_MATCH_TEXTHEIGHT ^p
+   [刷子.匹配标签内容   *<ssQ>]^c^c^pYQ_MATCH_TAGTEXT ^p
+   [--]
+   [刷子.匹配线宽度   ***<ssW>]^c^c^pYQ_MATCH_WIDTH ^p
+   [刷子.匹配线型      *<ssXT>]^c^c^pYQ_MATCH_LINETYPE ^p
+   [<-刷子.匹配竖向厚度  *<ssTH>]^c^c^pYQ_MATCH_THICKNESS ^p
+[->其他工具]
+   [选图框批量打印   ****<bPT>]^c^c^pYQ_BATCHPLOT ^p
+   [--]
+   [编制图纸目录    ****<dwgL>]^c^c^pYQ_CATALOG ^p
+   [选图框归档图纸    **<dwgS>]^c^c^pYQ_OUTPUTDWGS ^p
+   [排列合并图档      **<dwgA>]^c^c^pYQ_ARRANGEDWGS ^p
+   [--]
+   [隐藏选择图元      ***<eeF>]^c^c^pYQ_HIDESELECT ^p
+   [隐藏非选择图元    ***<eeD>]^c^c^pYQ_HIDEUNSELECT ^p
+   [显示临时隐藏图元  ***<eeA>]^c^c^pYQ_DISPLAYHIDE ^p
+   [强制显示全部图元  **<eeAA>]^c^c^pYQ_DISPLAYALL ^p
+   [--]
+   [快速制作一个编组   **<ggN>]^c^c^pYQ_QUICKGROUP ^p
+   [解散一个编组       **<ggX>]^c^c^pYQ_EXPLODEGROUP ^p
+   [加入一个编组        *<ggA>]^c^c^pYQ_GROUP_ADD ^p
+   [删除编组中图元      *<ggE>]^c^c^pYQ_GROUP_REMOVE ^p
+   [从编组中分离图元    *<ggS>]^c^c^pYQ_GROUP_SEPARATE ^p
+   [清除无用编组        *<ggP>]^c^c^pYQ_PURGEGROUP ^p
+   [--]
+   [切换是否使用动态   *<dtYQ>]^c^c^pYQ_SWITCH_DYNAMIC ^p
+   [画出Excel粘贴板坐标 *<ZTB>]^c^c^pYQ_DRAWCLIPBOARD ^p
+   [输出到谷歌地球  *****<a2k>]^c^c^pYQ_ACAD2KML ^P
+   [--]
+   [源泉设计命令查找    *<zml>]^c^c^pYQ_COMMANDFINDER ^P
+   [<-重复上一个源泉命令   *<qq>]^c^c^pYQ_LASTYQCMD ^p
+[->ＥＴ工具]
+   [->ET 文字工具]
+   [ET 字母改大小写     <tcase>]^c^c^p_tcase ^p
+   [ET 文字编号        <tcount>]^c^c^p_tcount ^p
+   [ET 修改文字对正方式 <tjust>]^c^c^p_tjust ^p
+   [ET 限制文字总宽度 <textfit>]^c^c^p_textfit ^p
+   [ET 旋转文字方向   <torient>]^c^c^p_torient ^p
+   [ET 缩放文字或定高  <tscale>]^c^c^p_tscale ^p
+   [ET 弧形字串       <arctext>]^c^c^p_arctext ^p
+   [--]
+   [ET 炸开文字为线    <txtexp>]^c^c^p_txtexp ^p
+   [ET 文字加圆框方框 <tcircle>]^c^c^p_tcircle ^p
+   [ET 文字加遮罩    <textmask>]^c^c^p_textmask ^p
+   [ET 除文字遮罩  <textunmask>]^c^c^p_textunmask ^p
+   [<-ET 单行字变多行  <txt2mtxt>]^c^c^p_txt2mtxt ^p
+   [--]
+   [->ET 标注工具]
+   [ET 标注样式输出        <dimex>]^c^c^p_dimex ^p
+   [ET 标注样式输入        <dimim>]^c^c^p_dimim ^p
+   [--]
+   [ET 引线附着文字        <qlattach>]^c^c^p_qlattach ^p
+   [ET 引线脱离文字     <qldetachset>]^c^c^p_qldetachset ^p
+   [<-ET 全局引线附着文字 <qldetachset>]^c^c^p_qldetachset ^p
+   [--]
+   [->ET 修改工具]
+   [ET 围圈切割              <extrim>]^c^c^p_extrim ^p
+   [ET 剪切延伸                <trex>]^c^c^p_trex ^p
+   [ET 多窗口拉伸          <mstretch>]^c^c^p_mstretch ^p
+   [ET 加强偏移            <exoffset>]^c^c^p_exoffset ^p
+   [ET 移动复制旋转          <mocoro>]^c^c^p_mocoro ^p
+   [--]
+   [ET 平面化(曲线转多段线) <flatten>]^c^c^p_flatten ^p
+   [<-ET 消除重叠图元        <overkill>]^c^c^p_overkill ^p
+   [--]
+   [->ET 图块工具]
+   [ET 块内物列表      <xlist>]^c^c^p_xlist ^p
+   [ET 拷贝块内物      <ncopy>]^c^c^p_ncopy ^p
+   [ET 炸开属性为文字  <burst>]^c^c^p_burst ^p
+   [ET 块属性读入txt   <attin>]^c^c^p_attin ^p
+   [<-ET 块属性输出txt  <attout>]^c^c^p_attout ^p
+   [--]
+   [->ET 线型和形]
+   [ET 制作线型      <mkltype>]^c^c^p_mkltype ^p
+   [ET 形变块        <shp2blk>]^c^c^p_shp2blk ^p
+   [<-ET 制作形文件    <mkshape>]^c^c^p_mkshape ^p
+   [--]
+   [->ET 布局工具]
+   [ET 转换模型/图纸空间    <chspace>]^c^c^p_chspace ^p
+   [ET 对齐模型/图纸空间 <alignspace>]^c^c^p_alignspace ^p
+   [ET 合并视口         <layoutmerge>]^c^c^p_layoutmerge ^p
+   [ET 同步多个视口          <vpsync>]^c^c^p_vpsync ^p
+   [<-ET 查询视口比例         <vpscale>]^c^c^p_vpscale ^p
+   [--]
+   [->ET 文件工具]
+   [ET 图像编辑       <imageedit>]^c^c^p_imageedit ^p
+   [ET 转换plt为dwg文件 <plt2dwg>]^c^c^p_plt2dwg ^p
+   [ET 重设参照图像路径   <redir>]^c^c^p_redir ^p
+   [<-ET 更新图形属性 <propulate>]^c^c^p_propulate ^p
+   [--]
+   [->ET 选择工具]
+   [ET 选择相似项    <getsel>]^c^c^p_getsel ^p
+   [<-ET 快速选择          <fs>]'_fs
+   [--]
+   [->ET 其他工具]
+   [ET 给图元连接外部数据        <xdata>]^c^c^p_xdata ^p
+   [ET 查询图元外部数据         <xdlist>]^c^c^p_xdlist ^p
+   [ET 编辑AutoCAD原始快捷键 <aliasedit>]^c^c^p_aliasedit ^p
+   [<-<-ET 修改系统变量            <sysvdlg>]^c^c^p_sysvdlg ^p
+
+
+
+
+
+
+
+
+
+***POP30
+**yqapp
+[YQArch Pull-down Menu]
+[&Perpendicular(垂足)]_per
+[&Ortho(正交)]^O
+[--]
+[&Zoom(缩放)]'zoom
+[&Zoom p(缩回)]'zoom p;
+[&Pan(平移)]'pan
+[--]
+[&Osnap 5(常用)]'-osnap nod,int,end,mid,qua;
+[&Osnap 6(常用)]'-osnap nod,int,end,mid,qua,per;
+[&Osnap 7(常用)]'-osnap nod,int,end,mid,qua,per,near;
+[&Osnap setting(设定)]'osnap
+[&Osnap clear(清除)]'-osnap ;
+[--]
+[->&Snap单次捕捉]
+  [Trac&king(轨迹)]_tracking
+  [&From(从)]_from
+  [->Point Fi&lters(点过滤)]
+     [.X].X
+     [.Y].Y
+     [.Z].Z
+     [--]
+     [.XY].XY
+     [.XZ].XZ
+     [<-.YZ].YZ
+  [&Endpoint(端点)]_endp
+  [&Midpoint(中点)]_mid
+  [&Intersection(交点)]_int
+  [&Apparent Intersect(直观交点)]_appint
+  [--]
+  [&Center(圆心)]_cen
+  [&Quadrant(四分圆)]_qua
+  [&Tangent(切点)]_tan
+  [--]
+  [&Perpendicular(垂足)]_per
+  [No&de(节点)]_nod
+  [In&sert(插入)]_ins
+  [Nea&rest(最近)]_nea
+  [<--&None(无)]_non
+[--]
+[源泉设计]$p0=yqarch.yqarch $p0=*
+
+
+
+
+
+
+
+
+
+
+***TOOLBARS
+
+**SystemSetup
+ID_tbSystemSetup        [_Toolbar("源泉.系统设定", _right, _show, 1, 1, 1)]
+ID_tbyq_sys_setting     [_Button("用户系统配置", yq_yqsys, yq_yqsys)]^c^c^pYQ_SYS_SETTING ^P
+ID_tbyq_toolbarson      [_Button("打开源泉图形按钮", yq_tba, yq_tba)]^c^c^pYQ_TOOLBARSON ^P
+ID_tbyq_toolbarsoff     [_Button("关闭源泉图形按钮", yq_tbaf, yq_tbaf)]^c^c^pYQ_TOOLBARSOFF ^P
+[--]
+ID_tbyq_setuser         [_Button("选择当前用户", yq_yquser, yq_yquser)]^c^c^pYQ_SETUSER ^P
+ID_tbyq_lang            [_Button("切换提示语言", yq_yqlang, yq_yqlang)]^c^c^pYQ_LANG ^P
+ID_tbyq_setunits        [_Button("设定绘图单位", yq_yqunits, yq_yqunits)]^c^c^pYQ_SETUNITS ^P
+ID_tbyq_menu            [_Button("加载源泉菜单", yq_yqmenu, yq_yqmenu)]^c^c^pYQ_MENU ^P
+[--]
+ID_tbyq_setdwgscale     [_Button("设置图纸/符号比例", yq_sd, yq_sd)]^c^c^pYQ_SETDWGSCALE ^P
+ID_tbyq_dwgframe        [_Button("绘制图框", yq_tk, yq_tk)]^c^c^pYQ_DWGFRAME ^p
+[--]
+ID_tbyq_help            [_Button("详细帮助文档", yq_yqhelp, yq_yqhelp)]^c^c^pYQ_HELP ^P
+ID_tbyq_ver             [_Button("源泉设计版本", yq_yqver, yq_yqver)]^c^c^pYQ_VER ^P
+ID_tbyq_website         [_Button("源泉设计网站", yq_yqweb, yq_yqweb)]^c^c^pYQ_WEBSITE ^P
+ID_tbyq_about           [_Button("关于源泉设计", yq_yqabout, yq_yqabout)]^c^c^pYQ_ABOUT ^p
+
+**WallColTools
+ID_tbWallColTools       [_Toolbar("源泉.平面墙柱", _right, _show, 1, 2, 1)]
+ID_tbyq_axisline        [_Button("画轴线", yq_ax, yq_ax)]^c^c^pYQ_AXISLINE ^p
+ID_tbyq_gridaxis        [_Button("简单轴线网", yq_zxw, yq_zxw)]^c^c^pYQ_GRIDAXIS ^p
+[--]
+ID_tbyq_wall            [_Button("画墙", yq_ww, yq_ww)]^c^c^pYQ_WALL ^p
+ID_tbyq_trim_fix_wall   [_Button("智能墙剪", yq_tw, yq_tw)]^c^c^pYQ_TRIM_FIX_WALL ^p
+ID_tbyq_wall_chgthk     [_Button("修正墙厚", yq_wwt, yq_wwt)]^c^c^pYQ_WALL_CHGTHK ^p
+ID_tbyq_line2wall       [_Button("轴线变墙", yq_xww, yq_xww)]^c^c^pYQ_LINE2WALL ^p
+ID_tbyq_wall_cdoffset   [_Button("墙净距偏移", yq_wwo, yq_wwo)]^c^c^pYQ_WALL_CDOFFSET ^p
+[--]
+ID_tbyq_wall2axis       [_Button("求墙中轴线", yq_wwa, yq_wwa)]^c^c^pYQ_WALL2AXIS ^p
+ID_tbyq_fill_wall       [_Button("填充墙、柱", yq_wwf, yq_wwf)]^c^c^pYQ_FILL_WALL ^p
+[--]
+ID_tbyq_r_column        [_Button("画方柱子", yq_zzr, yq_zzr)]^c^c^pYQ_R_COLUMN ^p
+ID_tbyq_o_column        [_Button("画圆柱子", yq_zzc, yq_zzc)]^c^c^pYQ_O_COLUMN ^p
+ID_tbyq_l_column        [_Button("画L型柱子", yq_zzl, yq_zzl)]^c^c^pYQ_L_COLUMN ^p
+ID_tbyq_t_column        [_Button("画T型柱子", yq_zzt, yq_zzt)]^c^c^pYQ_T_COLUMN ^p
+ID_tbyq_c_column        [_Button("画+型柱子", yq_zzx, yq_zzx)]^c^c^pYQ_C_COLUMN ^p
+[--]
+ID_tbyq_axis_column     [_Button("轴线布置柱子", yq_zzbz, yq_zzbz)]^c^c^pYQ_AXIS_COLUMN ^p
+ID_tbyq_pline2column    [_Button("变成柱子", yq_xxzz, yq_xxzz)]^c^c^pYQ_PLINE2COLUMN ^p
+ID_tbyq_fill_column     [_Button("填充柱子", yq_zzf, yq_zzf)]^c^c^pYQ_FILL_COLUMN ^p
+[--]
+ID_tbyq_erase_wall      [_Button("删墙柱门窗", yq_ew, yq_ew)]^c^c^pYQ_ERASE_WALL ^p
+
+**WindowDoorTools
+ID_tbWindowDoorTools    [_Toolbar("源泉.平面门窗", _right, _show, 2, 1, 1)]
+ID_tbyq_hole_door       [_Button("墙或轴线开普通门", yq_ad, yq_ad)]^c^c^pYQ_HOLE_DOOR ^p
+ID_tbyq_door            [_Button("两点画普通门", yq_ad2, yq_ad2)]^c^c^pYQ_DOOR ^p
+ID_tbyq_hole_win        [_Button("墙或轴线开普通窗", yq_wd, yq_wd)]^c^c^pYQ_HOLE_WIN ^p
+ID_tbyq_win             [_Button("两点画普通窗", yq_wd2, yq_wd2)]^c^c^pYQ_WIN ^p
+ID_tbyq_windoor_replace [_Button("普通门窗置换", yq_td, yq_td)]^c^c^pYQ_WINDOOR_REPLACE ^p
+ID_tbyq_hole            [_Button("墙上开门洞", yq_ho, yq_ho)]^c^c^pYQ_HOLE ^p
+[--]
+ID_tbyq_hole_pocketdoor       [_Button("墙或轴线开门套门", yq_adt, yq_adt)]^c^c^pYQ_HOLE_POCKETDOOR ^p
+ID_tbyq_pocketdoor            [_Button("两点画门套门", yq_adt2, yq_adt2)]^c^c^pYQ_POCKETDOOR ^p
+ID_tbyq_pocketdoor_replace    [_Button("替代为门套门", yq_tdd, yq_tdd)]^c^c^pYQ_POCKETDOOR_REPLACE ^p
+[--]
+ID_tbyq_hole_window     [_Button("墙或轴线开参数窗", yq_wd, yq_wd)]^c^c^pYQ_HOLE_WINDOW ^p
+ID_tbyq_window          [_Button("两点画参数窗", yq_wd2, yq_wd2)]^c^c^pYQ_WINDOW ^p
+ID_tbyq_window_replace  [_Button("替代为参数窗", yq_tdw, yq_tdw)]^c^c^pYQ_WINDOW_REPLACE ^p
+[--]
+ID_tbyq_hole_cornerwindow  [_Button("墙上开转角窗", yq_wdz, yq_wdz)]^c^c^pYQ_HOLE_CORNERWINDOW ^p
+ID_tbyq_cwindow_replace    [_Button("转角窗替换样式", yq_tdz, yq_tdz)]^c^c^pYQ_CWINDOW_REPLACE ^p
+[--]
+ID_tbyq_doorsill        [_Button("门槛线管理", yq_mkx, yq_mkx)]^c^c^pYQ_DOORSILL ^p
+ID_tbyq_dooropening     [_Button("门洞线管理", yq_mdx, yq_mdx)]^c^c^pYQ_DOOROPENING ^p
+[--]
+ID_tbyq_line2window     [_Button("线变平面窗", yq_xwd, yq_xwd)]^c^c^pYQ_LINE2WINDOW ^p
+ID_tbyq_width_windoor   [_Button("修改门窗宽度", yq_cw, yq_cw)]^c^c^pYQ_WIDTH_WINDOOR ^p
+ID_tbyq_move_windoor    [_Button("左右移动门窗", yq_vw, yq_vw)]^c^c^pYQ_MOVE_WINDOOR ^p
+[--]
+ID_tbyq_repair          [_Button("修正门窗和柱子", yq_fw, yq_fw)]^c^c^pYQ_REPAIR ^p
+ID_tbyq_moveandfix      [_Button("移动并修正", yq_vx, yq_vx)]^c^c^pYQ_MOVEANDFIX ^p
+ID_tbyq_copyandfix      [_Button("复制并修正", yq_cx, yq_cx)]^c^c^pYQ_COPYANDFIX ^p
+ID_tbyq_mirrorandfix    [_Button("镜像并修正", yq_rrx, yq_rrx)]^c^c^pYQ_MIRRORANDFIX ^p
+[--]
+ID_tbyq_overturn        [_Button("翻转门窗", yq_fz, yq_fz)]^c^c^pYQ_OVERTURN ^p
+ID_tbyq_match_block     [_Button("匹配门窗", yq_ssb, yq_ssb)]^c^c^pYQ_MATCH_BLOCK ^p
+[--]
+ID_tbyq_erase_wall      [_Button("删墙柱门窗", yq_ew, yq_ew)]^c^c^pYQ_ERASE_WALL ^p
+[--]
+ID_tbyq_winSerialNumber [_Button("门窗编号管理", yq_wbh, yq_wbh)]^c^c^pYQ_WINSERIALNUMBER ^p
+
+**Components
+ID_tbComponents         [_Toolbar("源泉.建筑构件", _right, _show, 2, 2, 1)]
+ID_tbyq_sldcomponents   [_Button("建筑构件集", yq_gj, yq_gj)]^c^c^pYQ_SLDCOMPONENTS ^p
+[--]
+ID_tbyq_escalator       [_Button("自动扶梯平面立面", yq_ltf, yq_ltf)]^c^c^pYQ_ESCALATOR ^p
+ID_tbyq_staircase_plan  [_Button("矩形楼梯间平面", yq_ltj, yq_ltj)]^c^c^pYQ_STAIRCASE_PLAN ^p
+ID_tbyq_arcstair_plan   [_Button("弧形楼梯平面", yq_lta, yq_lta)]^c^c^pYQ_ARCSTAIR_PLAN ^p
+ID_tbyq_lift_plan       [_Button("电梯轿厢平面", yq_dtj, yq_dtj)]^c^c^pYQ_LIFT_PLAN ^p
+[--]
+ID_tbyq_door_elevation      [_Button("平开门立面", yq_ade, yq_ade)]^c^c^pYQ_DOOR_ELEVATION ^p
+ID_tbyq_door_section        [_Button("平开门剖面", yq_ads, yq_ads)]^c^c^pYQ_DOOR_SECTION ^p
+ID_tbyq_baywin_section      [_Button("绘制凸窗剖面", yq_wts, yq_wts)]^c^c^pYQ_BAYWIN_SECTION ^p
+ID_tbyq_window_elevation    [_Button("窗户立面", yq_wde, yq_wde)]^c^c^pYQ_WINDOW_ELEVATION ^p
+ID_tbyq_window_section      [_Button("窗户剖面", yq_wds, yq_wds)]^c^c^pYQ_WINDOW_SECTION ^p
+ID_tbyq_shutter             [_Button("百叶窗立面剖面", yq_by, yq_by)]^c^c^pYQ_SHUTTER ^p
+ID_tbyq_curtainglass        [_Button("幕墙玻璃剖面", yq_mbl, yq_mbl)]^c^c^pYQ_CURTAINGLASS ^p
+[--]
+ID_tbyq_lines2winelev       [_Button("线框变窗户立面", yq_wdd, yq_wdd)]^c^c^pYQ_LINES2WINELEV ^p
+ID_tbyq_sn2winelev          [_Button("门窗编号变立面框", yq_t2w, yq_t2w)]^c^c^pYQ_SN2WINELEV ^p
+ID_tbyq_curtainwall         [_Button("幕墙立面", yq_mq, yq_mq)]^c^c^pYQ_CURTAINWALL ^p
+ID_tbyq_glass_partition     [_Button("幕/隔墙剖面", yq_mqs, yq_mqs)]^c^c^pYQ_GLASS_PARTITION ^p
+ID_tbyq_banister            [_Button("扶手栏杆立面", yq_lg, yq_lg)]^c^c^pYQ_BANISTER ^p
+[--]
+ID_tbyq_staircase_section   [_Button("楼梯间剖面", yq_ltp, yq_ltp)]^c^c^pYQ_STAIRCASE_SECTION ^p
+ID_tbyq_step_section        [_Button("拉线踏步", yq_lxtb, yq_lxtb)]^c^c^pYQ_STEP_SECTION ^p
+[--]
+ID_tbyq_waterproof      [_Button("绘制防水层剖面", yq_fsc, yq_fsc)]^c^c^pYQ_WATERPROOF ^p
+ID_tbyq_stucco          [_Button("绘制粉刷层剖面", yq_fn, yq_fn)]^c^c^pYQ_STUCCO ^p
+
+**Decoration
+ID_tbdecoration         [_Toolbar("源泉.装饰构件", _right, _show, 2, 3, 1)]
+ID_tbyq_slddecoration   [_Button("装饰构件集", yq_zs, yq_zs)]^c^c^pYQ_SLDDECORATION ^p
+[--]
+ID_tbyq_autofurniture   [_Button("家具洁具平面布置", yq_jj, yq_jj)]^c^c^pYQ_AUTOFURNITURE ^p
+ID_tbyq_arrangewc       [_Button("厕所浴室平面布置", yq_wc, yq_wc)]^c^c^pYQ_ARRANGEWC ^p
+[--]
+ID_tbyq_chestplan       [_Button("衣柜平面", yq_yg, yq_yg)]^c^c^pYQ_CHESTPLAN ^p
+ID_tbyq_curtainplan     [_Button("窗帘平面", yq_cl, yq_cl)]^c^c^pYQ_CURTAINPLAN ^p
+ID_tbyq_plasterstringplan     [_Button("偏移石膏线平面", yq_sgx, yq_sgx)]^c^c^pYQ_PLASTERSTRINGPLAN ^p
+ID_tbyq_cupboardplan    [_Button("简易柜子平面", yq_gz, yq_gz)]^c^c^pYQ_CUPBOARDPLAN ^p
+ID_tbyq_cupboardelev    [_Button("简易柜子立面", yq_gze, yq_gze)]^c^c^pYQ_CUPBOARDELEV ^p
+[--]
+ID_tbyq_stonetile       [_Button("石头板及剖面", yq_stb, yq_stb)]^c^c^pYQ_STONETILE ^p
+ID_tbyq_woodenframe     [_Button("木方架子剖面", yq_mf, yq_mf)]^c^c^pYQ_WOODENFRAME ^p
+ID_tbyq_array_boards    [_Button("层板阵列", yq_cbz, yq_cbz)]^c^c^pYQ_ARRAY_BOARDS ^p
+[--]
+ID_tbyq_blockboard      [_Button("木工板剖面", yq_mgb, yq_mgb)]^c^c^pYQ_BLOCKBOARD ^p
+ID_tbyq_plywood         [_Button("夹板剖面", yq_jb, yq_jb)]^c^c^pYQ_PLYWOOD ^p
+ID_tbyq_woodflooring    [_Button("木地板剖面", yq_mdb, yq_mdb)]^c^c^pYQ_WOODFLOORING ^p
+ID_tbyq_glass           [_Button("玻璃剖面", yq_bl, yq_bl)]^c^c^pYQ_GLASS ^p
+ID_tbyq_gypsumboard     [_Button("石膏板剖面", yq_sgb, yq_sgb)]^c^c^pYQ_GYPSUMBOARD ^p
+ID_tbyq_yq_lighttrough  [_Button("暗藏灯槽剖面", yq_thdc, yq_thdc)]^c^c^pYQ_LIGHTTROUGH ^p
+ID_tbyq_partitionwall   [_Button("轻钢龙骨石膏板隔墙", yq_gq, yq_gq)]^c^c^pYQ_PARTITIONWALL ^p
+[--]
+ID_tbyq_formedsteel     [_Button("型钢截面", yq_xg, yq_xg)]^c^c^pYQ_FORMEDSTEEL ^p
+ID_tbyq_ironframe       [_Button("角钢架子剖面", yq_jgj, yq_jgj)]^c^c^pYQ_IRONFRAME ^p
+[--]
+ID_tbyq_insulation      [_Button("保温棉剖面", yq_bwm, yq_bwm)]^c^c^pYQ_INSULATION ^p
+ID_tbyq_weldingline     [_Button("绘制焊缝", yq_hf, yq_hf)]^c^c^pYQ_WELDINGLINE ^p
+ID_tbyq_hose            [_Button("绘制软管", yq_rg, yq_rg)]^c^c^pYQ_HOSE ^p
+ID_tbyq_pipe            [_Button("绘制管线", yq_gx, yq_gx)]^c^c^pYQ_PIPE ^p
+[--]
+ID_tbyq_boardhole       [_Button("板上方孔洞", yq_kd, yq_kd)]^c^c^pYQ_BOARDHOLE ^p
+ID_tbyq_cylindershadow  [_Button("圆柱影线", yq_yzx, yq_yzx)]^c^c^pYQ_CYLINDERSHADOW ^p
+ID_tbyq_cylindershadow  [_Button("画背栓孔", yq_bsk, yq_bsk)]^c^c^pYQ_BACKBOLTHOLE ^p
+[--]
+ID_tbyq_autolamps       [_Button("平面灯具布置", yq_dj, yq_dj)]^c^c^pYQ_AUTOLAMPS ^p
+ID_tbyq_randomspread    [_Button("满天星随机铺满", yq_mtx, yq_mtx)]^c^c^pYQ_RANDOMSPREAD ^p
+ID_tbyq_indoorelev      [_Button("生成室内立面框架", yq_lm, yq_lm)]^c^c^pYQ_INDOORELEV ^p
+
+**Symbols
+ID_tbSymbols            [_Toolbar("源泉.建筑符号", _right, _show, 2, 4, 1)]
+ID_tbyq_sldsymbols      [_Button("建筑符号集", yq_fh, yq_fh)]^c^c^pYQ_SLDSYMBOLS ^p
+[--]
+ID_tbyq_auto_axis_dim   [_Button("自动轴号尺寸线", yq_azh, yq_azh)]^c^c^pYQ_AUTO_AXIS_DIM ^p
+ID_tbyq_symbol_axis_c   [_Button("连续轴号尺寸线", yq_zh, yq_zh)]^c^c^pYQ_SYMBOL_AXIS_C ^p
+[--]
+ID_tbyq_geodesic_coordinates [_Button("建筑坐标", yq_zb, yq_zb)]^c^c^pYQ_GEODESIC_COORDINATES ^p
+ID_tbyq_designed_elevation   [_Button("建筑标高", yq_bg, yq_bg)]^c^c^pYQ_DESIGNED_ELEVATION ^p
+ID_tbyq_contour_elevation    [_Button("三维等高线标高", yq_xbg, yq_xbg)]^c^c^pYQ_CONTOUR_ELEVATION ^p
+[--]
+ID_tbyq_symbol_sectionplane  [_Button("平面剖切符号", yq_pqf, yq_pqf)]^c^c^pYQ_SYMBOL_SECTIONPLANE ^p
+ID_tbyq_symbol_sectioncutter [_Button("断面符号", yq_dmf, yq_dmf)]^c^c^pYQ_SYMBOL_SECTIONCUTTER ^p
+ID_tbyq_symbol_gradient      [_Button("坡度符号", yq_pd, yq_pd)]^c^c^pYQ_SYMBOL_GRADIENT ^p
+ID_tbyq_disconnection_line   [_Button("折断线", yq_zx, yq_zx)]^c^c^pYQ_DISCONNECTION_LINE ^p
+ID_tbyq_pipecutting          [_Button("圆管剖线", yq_gpx, yq_gpx)]^c^c^pYQ_PIPECUTTING ^p
+ID_tbyq_symmetry_axis        [_Button("对称轴", yq_dcz, yq_dcz)]^c^c^pYQ_SYMMETRY_AXIS ^p
+ID_tbyq_central_line         [_Button("中心线", yq_zxx, yq_zxx)]^c^c^pYQ_CENTRAL_LINE ^p
+[--]
+ID_tbyq_wiresurround    [_Button("画电线半圆跨线", yq_ac, yq_ac)]^c^c^pYQ_WIRESURROUND ^p
+ID_tbyq_erasesurround   [_Button("删电线半圆跨线", yq_ec, yq_ec)]^c^c^pYQ_ERASESURROUND ^p
+[--]
+ID_tbyq_bentarrow       [_Button("弯箭头", yq_aaw, yq_aaw)]^c^c^pYQ_BENTARROW ^p
+ID_tbyq_entrancearrow   [_Button("出入口箭头", yq_aae, yq_aae)]^c^c^pYQ_ENTRANCEARROW ^p
+
+**Indexers
+ID_tbIndexers           [_Toolbar("源泉.索引标题", _right, _show, 2, 5, 1)]
+ID_tbyq_sldindexers     [_Button("索引符号集", yq_sy, yq_sy)]^c^c^pYQ_SLDINDEXERS ^p
+[--]
+ID_tbyq_identifier1     [_Button("剖切索引号1", yq_sy1, yq_sy1)]^c^c^pYQ_IDENTIFIER1 ^p
+ID_tbyq_identifier2     [_Button("剖切索引号2", yq_sy2, yq_sy2)]^c^c^pYQ_IDENTIFIER2 ^p
+ID_tbyq_identifier3     [_Button("剖切索引号3", yq_sy3, yq_sy3)]^c^c^pYQ_IDENTIFIER3 ^p
+ID_tbyq_elevindexer4in1 [_Button("立面索引号4合1", yq_i0, yq_i0)]^c^c^pYQ_ELEVINDEXER4IN1 ^p
+ID_tbyq_elevindexer1    [_Button("立面索引号1", yq_i1, yq_i1)]^c^c^pYQ_ELEVINDEXER1 ^p
+ID_tbyq_elevindexer2    [_Button("立面索引号2", yq_i2, yq_i2)]^c^c^pYQ_ELEVINDEXER2 ^p
+ID_tbyq_elevindexer3    [_Button("立面索引号3", yq_i3, yq_i3)]^c^c^pYQ_ELEVINDEXER3 ^p
+ID_tbyq_elevindexer4    [_Button("立面索引号4", yq_i4, yq_i4)]^c^c^pYQ_ELEVINDEXER4 ^p
+[--]
+ID_tbyq_detailsymbol1   [_Button("详图符号1", yq_xt1, yq_xt1)]^c^c^pYQ_DETAILSYMBOL1 ^p
+ID_tbyq_detailsymbol2   [_Button("详图符号2", yq_xt2, yq_xt2)]^c^c^pYQ_DETAILSYMBOL2 ^p
+[--]
+ID_tbyq_indexer1        [_Button("自设索引符1", yq_s1, yq_s1)]^c^c^pYQ_INDEXER1 ^p
+ID_tbyq_indexer2        [_Button("自设索引符2", yq_s2, yq_s2)]^c^c^pYQ_INDEXER2 ^p
+ID_tbyq_indexer3        [_Button("自设索引符3", yq_s3, yq_s3)]^c^c^pYQ_INDEXER3 ^p
+ID_tbyq_indexer4        [_Button("自设索引符4", yq_s4, yq_s4)]^c^c^pYQ_INDEXER4 ^p
+ID_tbyq_indexer5        [_Button("自设索引符5", yq_s4, yq_s4)]^c^c^pYQ_INDEXER5 ^p
+ID_tbyq_indexer6        [_Button("自设索引符6", yq_s3, yq_s3)]^c^c^pYQ_INDEXER6 ^p
+ID_tbyq_indexer7        [_Button("自设索引符6", yq_s3, yq_s3)]^c^c^pYQ_INDEXER7 ^p
+ID_tbyq_indexer8        [_Button("自设索引符6", yq_s3, yq_s3)]^c^c^pYQ_INDEXER8 ^p
+ID_tbyq_indexer9        [_Button("自设索引符6", yq_s3, yq_s3)]^c^c^pYQ_INDEXER9 ^p
+[--]
+ID_tbyq_leader          [_Button("箭头引线", yq_aax, yq_aax)]^c^c^pYQ_LEADER ^p
+ID_tbyq_mptleader       [_Button("多点引线", yq_aaxx, yq_aaxx)]^c^c^pYQ_MPTLEADER ^p
+ID_tbyq_mptleader_y     [_Button("竖直多点引线", yq_aayy, yq_aayy)]^c^c^pYQ_MPTLEADER_Y ^p
+ID_tbyq_leader_vertexes [_Button("引线增删顶点", yq_aav, yq_aav)]^c^c^pYQ_LEADER_VERTEXES ^p
+ID_tbyq_leader_addarrow [_Button("引线加箭头", yq_aaj, yq_aaj)]^c^c^pYQ_LEADER_ADDARROW ^p
+[--]
+ID_tbyq_drawingtitle    [_Button("装饰图标题文字", yq_bt, yq_bt)]^c^c^pYQ_DRAWINGTITLE ^p
+
+**Statistics
+ID_tbStatistics         [_Toolbar("源泉.统计工具", _right, _show, 2, 6, 1)]
+ID_tbyq_sldstatistics   [_Button("统计工具集", yq_tj, yq_tj)]^c^c^pYQ_SLDSTATISTICS ^p
+[--]
+ID_tbyq_selecteasy      [_Button("选择易", yq_ss, yq_ss)]^c^c^pXC_SS ^p
+[--]
+ID_tbyq_autoserialnumber     [_Button("自动编号", yq_abh, yq_abh)]^c^c^pYQ_AUTOSERIALNUMBER ^p
+ID_tbyq_emptytable      [_Button("绘制等宽空表格", yq_kbg, yq_kbg)]^c^c^pYQ_EMPTYTABLE ^p
+ID_tbyq_text2center     [_Button("表格单元文字居中", yq_bgz, yq_bgz)]^c^c^pYQ_TEXT2CENTER ^p
+ID_tbyq_calc_cellarea   [_Button("统计区域面积", yq_tmj, yq_tmj)]^c^c^pYQ_CALC_CELLAREA ^p
+ID_tbyq_texts2excel     [_Button("输出到表格软件", yq_t2e, yq_t2e)]^c^c^pYQ_TEXTS2EXCEL ^p
+ID_tbyq_texts2acadTable [_Button("文字表格转表格", yq_tb, yq_tb)]^c^c^pYQ_TEXTS2ACADTABLE ^p
+[--]
+ID_tbyq_windoor_list    [_Button("统计门窗表", yq_mcb, yq_mcb)]^c^c^pYQ_WINDOOR_LIST ^p
+ID_tbyq_block_list      [_Button("统计图块", yq_bbl, yq_bbl)]^c^c^pYQ_BLOCK_LIST ^p
+ID_tbyq_blockatt_list   [_Button("统计块属性和动态参数", yq_sxl, yq_sxl)]^c^c^pYQ_BLOCKATT_LIST ^p
+ID_tbyq_coordinate_list [_Button("找坐标并列表", yq_zzb, yq_zzb)]^c^c^pYQ_COORDINATE_LIST ^p
+ID_tbyq_string_list     [_Button("提取字串并列表", yq_ttq, yq_ttq)]^c^c^pYQ_STRING_LIST ^p
+ID_tbyq_material_list   [_Button("提取生成材料表", yq_clb, yq_clb)]^c^c^pYQ_MATERIAL_LIST ^p
+[--]
+ID_tbyq_calc_sumarea    [_Button("统计面积总面积", yq_mj, yq_mj)]^c^c^pYQ_CALC_SUMAREA ^p
+ID_tbyq_asso_area       [_Button("文字关联面积", yq_pmj, yq_pmj)]^c^c^pYQ_ASSO_AREA ^p
+ID_tbyq_calc_perimeter  [_Button("统计周长总周长", yq_zc, yq_zc)]^c^c^pYQ_CALC_PERIMETER ^p
+ID_tbyq_asso_perimeter  [_Button("文字关联周长", yq_pzc, yq_pzc)]^c^c^pYQ_ASSO_PERIMETER ^p
+ID_tbyq_calweight       [_Button("根据密度计算重量", yq_zl, yq_zl)]^c^c^pYQ_CALWEIGHT ^p
+[--]
+ID_tbyq_AreaStat        [_Button("建筑面积分摊表", yq_ftb, yq_ftb)]^c^c^pYQ_AREASTAT ^p
+[--]
+ID_tbyq_calc_addition   [_Button("数字的和(＋)", yq_he, yq_he)]^c^c^pYQ_CALC_ADDITION ^p
+ID_tbyq_calc_subtration [_Button("数字的差(－)", yq_cha, yq_cha)]^c^c^pYQ_CALC_SUBTRATION ^p
+ID_tbyq_calc_multiplication  [_Button("数字的积(×)", yq_ji, yq_ji)]^c^c^pYQ_CALC_MULTIPLICATION ^p
+ID_tbyq_calc_division   [_Button("数字的商(÷)", yq_chu, yq_chu)]^c^c^pYQ_CALC_DIVISION ^p
+[--]
+ID_tbyq_calc_expression [_Button("计算数学表达式", yq_js, yq_js)]^c^c^pYQ_CALC_EXPRESSION ^p
+
+**TextContent
+ID_tbTextContent        [_Toolbar("源泉.文字内容", _right, _show, 2, 7, 1)]
+ID_tbyq_userdict        [_Button("用户词库管理", yq_dic, yq_dic)]^c^c^pYQ_USERDICT ^p
+ID_tbyq_translate       [_Button("中英翻译选中文字", yq_fy, yq_fy)]^c^c^pYQ_TRANSLATE ^p
+ID_tbyq_updtextlist     [_Button("列表刷新文字", yq_eq, yq_eq)]^c^c^pYQ_UPDTEXTLIST ^p
+[--]
+ID_tbyq_text            [_Button("输入单行文本", yq_tt, yq_tt)]^c^c^pYQ_TEXT ^p
+ID_tbyq_superedit       [_Button("编辑各种文字", yq_tte, yq_tte)]^c^c^pYQ_SUPEREDIT ^p
+ID_tbyq_dict2text       [_Button("用字典换字", yq_ttg, yq_ttg)]^c^c^pYQ_DICT2TEXT ^p
+ID_tbyq_hz_text         [_Button("新建或输入文本", yq_ctext, yq_ctext)]^c^c^pYQ_HZ_TEXT ^p
+ID_tbyq_hz_edit         [_Button("编辑或输出文本", yq_ced, yq_ced)]^c^c^pYQ_HZ_EDIT ^p
+[--]
+ID_tbyq_text_replace    [_Button("文字替换或计算替换", yq_ttr, yq_ttr)]^c^c^pYQ_TEXT_REPLACE ^p
+ID_tbyq_replace_substrs [_Button("替换多个文字子串", yq_ttrs, yq_ttrs)]^c^c^pYQ_REPLACE_SUBSTRS ^p
+[--]
+ID_tbyq_text_append     [_Button("连接多个文字", yq_tta, yq_tta)]^c^c^pYQ_TEXT_APPEND ^p
+ID_tbyq_jtext           [_Button("分行合并多文字", yq_ttj, yq_ttj)]^c^c^pYQ_JTEXT ^p
+ID_tbyq_text_break2     [_Button("打断文字为两段", yq_ttb, yq_ttb)]^c^c^pYQ_TEXT_BREAK2 ^p
+ID_tbyq_etext           [_Button("打散文字为字符", yq_ttbb, yq_ttbb)]^c^c^pYQ_ETEXT ^p
+[--]
+ID_tbyq_array_numbers   [_Button("递增复制数值文字", yq_123, yq_123)]^c^c^pYQ_ARRAY_NUMBERS ^p
+ID_tbyq_increase_numbers   [_Button("数字统一加增量", yq_inc, yq_inc)]^c^c^pYQ_INCREASE_NUMBERS ^p
+ID_tbyq_increase_text   [_Button("递增数字文字", yq_ttz, yq_ttz)]^c^c^pYQ_INCREASE_TEXT ^p
+ID_tbyq_findtext        [_Button("寻找特定文字", yq_ttf, yq_ttf)]^c^c^pYQ_FINDTEXT ^p
+[--]
+ID_tbyq_exchangelocation   [_Button("交换文本内容", yq_jh, yq_jh)]^c^c^pYQ_EXCHANGELOCATION ^p
+[--]
+ID_tbyq_match_content   [_Button("刷子.匹配文字内容", yq_sst, yq_sst)]^c^c^pYQ_MATCH_CONTENT ^p
+ID_tbyq_match_style     [_Button("刷子.匹配文字样式", yq_ssst, yq_ssst)]^c^c^pYQ_MATCH_STYLE ^p
+ID_tbyq_match_textheight   [_Button("刷子.匹配文字高度", yq_ssh, yq_ssh)]^c^c^pYQ_MATCH_TEXTHEIGHT ^p
+ID_tbyq_match_tagtext   [_Button("刷子.匹配标签内容", yq_ssq, yq_ssq)]^c^c^pYQ_MATCH_TAGTEXT ^p
+
+**TextOther
+ID_tbTextOther          [_Toolbar("源泉.文字其他", _right, _show, 2, 7, 1)]
+ID_tbyq_sldstyles       [_Button("新建文字样式", yq_ttn, yq_ttn)]^c^c^pYQ_SLDSTYLES ^p
+[--]
+ID_tbyq_text_cstyle     [_Button("设定当前文字样式", yq_tts, yq_tts)]^c^c^pYQ_TEXT_CSTYLE ^p
+ID_tbyq_text_update     [_Button("选样式更新文字", yq_ttu, yq_ttu)]^c^c^pYQ_TEXT_UPDATE ^p
+ID_tbyq_replacefonts    [_Button("自动替换缺文字档", yq_ttrf, yq_ttrf)]^c^c^pYQ_REPLACEFONTS ^p
+[--]
+ID_tbyq_changetext      [_Button("批量文字修改排版等", yq_ttc, yq_ttc)]^c^c^pYQ_CHANGETEXT ^p
+ID_tbyq_text_width      [_Button("修改高度/高宽比", yq_ttw, yq_ttw)]^c^c^pYQ_TEXT_WIDTH ^p
+ID_tbyq_reordertexts    [_Button("文字(表格)重新排序", yq_ttpx, yq_ttpx)]^c^c^pYQ_REORDERTEXTS ^p
+[--]
+ID_tbyq_text_alignmentleft   [_Button("对正方式改为左下", yq_ttl, yq_ttl)]^c^c^pYQ_TEXT_ALIGNMENTLEFT ^p
+ID_tbyq_text_alignmentright  [_Button("对正方式改为右下", yq_ttll, yq_ttll)]^c^c^pYQ_TEXT_ALIGNMENTRIGHT ^p
+ID_tbyq_text_restoremirr     [_Button("单行文字镜像恢复", yq_ttrr, yq_ttrr)]^c^c^pYQ_TEXT_RESTOREMIRR ^p
+[--]
+ID_tbyq_text2attdef     [_Button("转换文字或属性定义", yq_ttsx, yq_ttsx)]^c^c^pYQ_TEXT2ATTDEF ^p
+ID_tbyq_txtexp          [_Button("炸碎文字为线段", yq_ttx, yq_ttx)]^c^c^pYQ_TXTEXP ^p
+
+**DimensionDraw
+ID_tbDimensionDraw      [_Toolbar("源泉.标注绘制", _right, _show, 2, 8, 1)]
+ID_tbyq_setdwgscale     [_Button("设置图纸/符号比例", yq_sd, yq_sd)]^c^c^pYQ_SETDWGSCALE ^p
+[--]
+ID_tbyq_dim_linear      [_Button("水平垂直线性标注", yq_dd, yq_dd)]^c^c^pYQ_DIM_LINEAR ^p
+ID_tbyq_dim_aligned     [_Button("对齐标注", yq_ddx, yq_ddx)]^c^c^pYQ_DIM_ALIGNED ^p
+ID_tbyq_dim_baseline    [_Button("基线标注", yq_ddb, yq_ddb)]^c^c^pYQ_DIM_BASELINE ^p
+ID_tbyq_dim_radius      [_Button("半径标注", yq_ddr, yq_ddr)]^c^c^pYQ_DIM_RADIUS ^p
+ID_tbyq_dim_diameter    [_Button("直径标注", yq_ddj, yq_ddj)]^c^c^pYQ_DIM_DIAMETER ^p
+ID_tbyq_dim_angular     [_Button("角度标注", yq_ddang, yq_ddang)]^c^c^pYQ_DIM_ANGULAR ^p
+ID_tbyq_dim_arc         [_Button("弧长标注", yq_ddarc, yq_ddarc)]^c^c^pYQ_DIM_ARC ^p
+ID_tbyq_dim_qdim        [_Button("快速标注", yq_ddq, yq_ddq)]^c^c^pYQ_DIM_QDIM ^p
+[--]
+ID_tbyq_dim_closedspace [_Button("闭合空间自动标注", yq_ddz, yq_ddz)]^c^c^pYQ_DIM_CLOSEDSPACE ^p
+ID_tbyq_dim_pline       [_Button("闭合多段线标注", yq_ddzz, yq_ddzz)]^c^c^pYQ_DIM_PLINE ^p
+ID_tbyq_dim_polygonsides   [_Button("标注多段线/线边长", yq_ddss, yq_ddss)]^c^c^pYQ_DIM_POLYGONSIDES ^p
+[--]
+ID_tbyq_dim_axiswd      [_Button("门窗及轴线标注", yq_ddw, yq_ddw)]^c^c^pYQ_DIM_AXISWD ^p
+ID_tbyq_dim_blocks      [_Button("图块及内墙标注", yq_ddww, yq_ddww)]^c^c^pYQ_DIM_BLOCKS ^p
+ID_tbyq_dim_cupboard    [_Button("立面柜子标注", yq_ddgz, yq_ddgz)]^c^c^pYQ_DIM_CUPBOARD ^p
+[--]
+ID_tbyq_dim_stairs      [_Button("楼梯踏步等分标注", yq_ddst, yq_ddst)]^c^c^pYQ_DIM_STAIRS ^p
+ID_tbyq_dim_intpts      [_Button("拉线按交点标注", yq_ddxx, yq_ddxx)]^c^c^pYQ_DIM_INTPTS ^p
+ID_tbyq_dim_curveintpts [_Button("找曲线交点标注弦长", yq_ddcc, yq_ddcc)]^c^c^pYQ_DIM_CURVEINTPTS ^p
+ID_tbyq_dim_arcparts    [_Button("找圆弧交点标注弧长", yq_ddcc, yq_ddcc)]^c^c^pYQ_DIM_ARCPARTS ^p
+ID_tbyq_dim_rearrange   [_Button("选数字排列重建标注", yq_ddp, yq_ddp)]^c^c^pYQ_DIM_REARRANGE ^p
+ID_tbyq_dim_mergebase   [_Button("合并绘制基线标注", yq_ddbb, yq_ddbb)]^c^c^pYQ_DIM_MERGEBASE ^p
+[--]
+ID_tbyq_dim_switchlayer [_Button("切换标注图层", yq_dder, yq_dder)]^c^c^pYQ_DIM_SWITCHLAYER ^p
+ID_tbyq_dim_cstyle      [_Button("设定当前标注样式", yq_dds, yq_dds)]^c^c^pYQ_DIM_CSTYLE ^p
+ID_tbyq_dim_update      [_Button("选样式更新标注", yq_ddu, yq_ddu)]^c^c^pYQ_DIM_UPDATE ^p
+ID_tbyq_dim_switchstyle [_Button("切换强制源泉样式", yq_ddyq, yq_ddyq)]^c^c^pYQ_DIM_SWITCHSTYLE ^p
+
+**DimensionModify
+ID_tbDimensionModify    [_Toolbar("源泉.标注修改", _right, _show, 2, 9, 1)]
+ID_tbyq_dim_adjust      [_Button("标注文字避让", yq_ddaa, yq_ddaa)]^c^c^pYQ_DIM_ADJUST ^p
+[--]
+ID_tbyq_dim_extend      [_Button("移动脚点", yq_dde, yq_dde)]^c^c^pYQ_DIM_EXTEND ^p
+ID_tbyq_dim_divide      [_Button("分裂扩展为多个", yq_dd2, yq_dd2)]^c^c^pYQ_DIM_DIVIDE ^p
+ID_tbyq_dim_merge       [_Button("标注合并", yq_dd1, yq_dd1)]^c^c^pYQ_DIM_MERGE ^p
+ID_tbyq_dim_align       [_Button("排齐脚点界线", yq_ddl, yq_ddl)]^c^c^pYQ_DIM_ALIGN ^p
+ID_tbyq_dim_aligndimline   [_Button("排齐界线", yq_ddll, yq_ddll)]^c^c^pYQ_DIM_ALIGNDIMLINE ^p
+ID_tbyq_dim_alignpoints    [_Button("排齐脚点", yq_ddl, yq_ddl)]^c^c^pYQ_DIM_ALIGNPOINTS ^p
+ID_tbyq_dim_extlen         [_Button("统一标注界线长度", yq_ddle, yq_ddle)]^c^c^pYQ_DIM_EXTLEN ^p
+ID_tbyq_dim_adjustbase     [_Button("修正基线间距", yq_ddy, yq_ddy)]^c^c^pYQ_DIM_ADJUSTBASE ^p
+ID_tbyq_dim_batchbase      [_Button("批量基线间距", yq_ddyy, yq_ddyy)]^c^c^pYQ_DIM_BATCHBASE ^p
+ID_tbyq_dim_showextline    [_Button("显示2脚线", yq_dd2e, yq_dd2e)]^c^c^pYQ_DIM_SHOWEXTLINE ^p
+ID_tbyq_dim_switch_ar      [_Button("转换为对齐或转角标注", yq_ddar, yq_ddar)]^c^c^pYQ_DIM_SWITCH_AR ^p
+[--]
+ID_tbyq_dim_reverse     [_Button("翻转标注文字", yq_ddrev, yq_ddrev)]^c^c^pYQ_DIM_REVERSE ^p
+ID_tbyq_dim_fix         [_Button("固化标注文字", yq_ddf, yq_ddf)]^c^c^pYQ_DIM_FIX ^p
+ID_tbyq_dim_recover     [_Button("标注恢复原值", yq_ddrec, yq_ddrec)]^c^c^pYQ_DIM_RECOVER ^p
+ID_tbyq_dim_mmtom       [_Button("单位转化为米", yq_ddm, yq_ddm)]^c^c^pYQ_DIM_MMTOM ^p
+ID_tbyq_dim_round       [_Button("修改标注精度", yq_dd0, yq_dd0)]^c^c^pYQ_DIM_ROUND ^p
+ID_tbyq_dim_newtext     [_Button("键入新标注文字", yq_ddn, yq_ddn)]^c^c^pYQ_DIM_NEWTEXT ^p
+[--]
+ID_tbyq_dim_tedit       [_Button("标注文字移位", yq_ddt, yq_ddt)]^c^c^pYQ_DIM_TEDIT ^p
+ID_tbyq_dim_home        [_Button("标注文字复位", yq_ddh, yq_ddh)]^c^c^pYQ_DIM_HOME ^p
+
+**CurveTools
+ID_tbCurveTools         [_Toolbar("源泉.曲线工具", _right, _show, 2, 10, 1)]
+ID_tbyq_pline_vertexes  [_Button("多段线增删顶点", yq_xxv, yq_xxv)]^c^c^pYQ_PLINE_VERTEXES ^p
+ID_tbyq_pline_optimize  [_Button("优化多段线顶点", yq_xxy, yq_xxy)]^c^c^pYQ_PLINE_OPTIMIZE ^p
+[--]
+ID_tbyq_plsegment_arc   [_Button("多段线的段变弧", yq_xxa, yq_xxa)]^c^c^pYQ_LINE2ARC ^p
+ID_tbyq_plsegment_width [_Button("多段线改段宽", yq_xxw, yq_xxw)]^c^c^pYQ_PLSEGMENT_WIDTH ^p
+ID_tbyq_plsegment_offset [_Button("偏移多段线的一段", yq_xxs, yq_xxs)]^c^c^pYQ_PLSEGMENT_OFFSET ^p
+[--]
+ID_tbyq_pline_join      [_Button("连成多段线", yq_xxj, yq_xxj)]^c^c^pYQ_PLINE_JOIN ^p
+ID_tbyq_pline_close     [_Button("连成闭合多段线", yq_xxc, yq_xxc)]^c^c^pYQ_PLINE_CLOSE ^p
+ID_tbyq_pline_reverse   [_Button("反转曲线方向", yq_xxfz, yq_xxfz)]^c^c^pYQ_PLINE_REVERSE ^p
+ID_tbyq_wpline2wireframe    [_Button("厚度多段线变线框", yq_xxf, yq_xxf)]^c^c^pYQ_WPLINE2WIREFRAME ^p
+ID_tbyq_connectvertexes [_Button("连接两根多段线顶点", yq_ljx, yq_ljx)]^c^c^pYQ_CONNECTVERTEXES ^p
+[--]
+ID_tbyq_outline         [_Button("求边界线/外轮廓线", yq_lk, yq_lk)]^c^c^pYQ_OUTLINE ^p
+ID_tbyq_innercontours   [_Button("求内部轮廓线", yq_nlk, yq_nlk)]^c^c^pYQ_INNERCONTOURS ^p
+ID_tbyq_inneroffset     [_Button("求内轮廓+偏移", yq_nlks, yq_nlks)]^c^c^pYQ_INNEROFFSET ^p
+ID_tbyq_tofreehand      [_Button("手绘效果线条抖动", yq_hw, yq_hw)]^c^c^pYQ_TOFREEHAND ^p
+[--]
+ID_tbyq_break_equal     [_Button("等分曲线", yq_df, yq_df)]^c^c^pYQ_BREAK_EQUAL ^p
+ID_tbyq_2ptsdivide      [_Button("两点等分", yq_dfx, yq_dfx)]^c^c^pYQ_2PTSDIVIDE ^p
+[--]
+ID_tbyq_ellipse2arc     [_Button("用圆弧模拟椭圆", yq_e2a, yq_e2a)]^c^c^pYQ_ELLIPSE2ARC ^p
+ID_tbyq_spline2apline   [_Button("曲线转圆弧多段线", yq_cca, yq_cca)]^c^c^pYQ_SPLINE2APLINE ^p
+ID_tbyq_spline2xpline   [_Button("曲线转线段多段线", yq_ccx, yq_ccx)]^c^c^pYQ_SPLINE2XPLINE ^p
+ID_tbyq_curve2bowstring [_Button("等弦长分曲线", yq_ccxx, yq_ccxx)]^c^c^pYQ_CURVE2BOWSTRING ^p
+ID_tbyq_curveprojection [_Button("求曲线投影线", yq_ccy, yq_ccy)]^c^c^pYQ_CURVEPROJECTION ^p
+[--]
+ID_tbyq_match_width     [_Button("刷子.多段线宽度", yq_ssw, yq_ssw)]^c^c^pYQ_MATCH_WIDTH ^p
+
+**ExtraTools
+ID_tbExtraTools         [_Toolbar("源泉.特殊工具", _right, _show, 2, 11, 1)]
+ID_tbyq_numberlines     [_Button("数字行管理与应用", yq_vv, yq_vv)]^c^c^pYQ_NUMBERLINES ^p
+[--]
+ID_tbyq_doubleline      [_Button("绘制双线", yq_dx, yq_dx)]^c^c^pYQ_DOUBLELINE ^p
+ID_tbyq_trimdoubleline  [_Button("修剪双线", yq_tx, yq_tx)]^c^c^pYQ_TRIMDOUBLELINE ^p
+ID_tbyq_dlineThickness  [_Button("修正双线厚度", yq_xdt, yq_xdt)]^c^c^pYQ_DLINETHICKNESS ^p
+ID_tbyq_2doubleline     [_Button("单线变双线", yq_xdx, yq_xdx)]^c^c^pYQ_2DOUBLELINE ^p
+ID_tbyq_2doubleline     [_Button("双线净距偏移", yq_xdo, yq_xdo)]^c^c^pYQ_DLINE_OFFSET ^p
+ID_tbyq_doublelineAxis  [_Button("求双线中轴线", yq_ce, yq_ce)]^c^c^pYQ_DOUBLELINEAXIS ^p
+[--]
+ID_tbyq_alignment       [_Button("对齐图元", yq_dq, yq_dq)]^c^c^pYQ_ALIGNMENT ^p
+ID_tbyq_leaderalign     [_Button("箭头引线对齐", yq_aadq, yq_aadq)]^c^c^pYQ_LEADERALIGN ^p
+ID_tbyq_leaderalign     [_Button("图框按线长调整", yq_tktz, yq_tktz)]^c^c^pYQ_ALIGNFRAME ^p
+[--]
+ID_tbyq_breakbyknife    [_Button("画线切割", yq_bd, yq_bd)]^c^c^pYQ_BREAKBYKNIFE ^p
+ID_tbyq_BreakByKnives   [_Button("多线切割", yq_bdd, yq_bdd)]^c^c^pYQ_BREAKBYKNIVES ^p
+ID_tbyq_BreakAndErase   [_Button("打断删除框内图元", yq_bx, yq_bx)]^c^c^pYQ_BREAKANDERASE ^p
+ID_tbyq_pastedetaildwg  [_Button("切割提取大样图", yq_qg, yq_qg)]^c^c^pYQ_PASTEDETAILDWG ^p
+[--]
+ID_tbyq_transform       [_Button("四边形及其他变形", yq_tf, yq_tf)]^c^c^pYQ_TRANSFORM ^p
+[--]
+ID_tbyq_boundingbox     [_Button("求矩形外框", yq_jx, yq_jx)]^c^c^pYQ_BOUNDINGBOX ^p
+ID_tbyq_toboundingbox   [_Button("变矩形外框", yq_wk, yq_wk)]^c^c^pYQ_TOBOUNDINGBOX ^p
+ID_tbyq_minBoundingbox  [_Button("最小包裹矩形/外接圆", yq_xjx, yq_xjx)]^c^c^pYQ_MINBOUNDINGBOX ^p
+[--]
+ID_tbyq_overturn        [_Button("随意翻转", yq_fz, yq_fz)]^c^c^pYQ_OVERTURN ^p
+ID_tbyq_exchangelocation    [_Button("图元交换位置", yq_jh, yq_jh)]^c^c^pYQ_EXCHANGELOCATION ^p
+ID_tbyq_copy2points     [_Button("按点阵布置图元", yq_dzbz, yq_dzbz)]^c^c^pYQ_COPY2POINTS ^p
+ID_tbyq_assistantlines  [_Button("快捷辅助线", yq_fzx, yq_fzx)]^c^c^pYQ_ASSISTANTLINES ^p
+
+**ModifyPlus
+ID_tbModifyPlus         [_Toolbar("源泉.修改增强", _right, _show, 2, 11, 1)]
+ID_tbyq_scale_each      [_Button("图元原地缩放", yq_asc, yq_asc)]^c^c^pYQ_SCALE_EACH ^p
+ID_tbyq_rotate_each     [_Button("图元原地旋转", yq_art, yq_art)]^c^c^pYQ_ROTATE_EACH ^p
+ID_tbyq_mirror_each     [_Button("图元原地镜像", yq_ami, yq_ami)]^c^c^pYQ_MIRROR_EACH ^p
+ID_tbyq_scalexyz        [_Button("XY不等比缩放", yq_scx, yq_scx)]^c^c^pYQ_SCALEXYZ ^p
+[--]
+ID_tbyq_dynamiccopy     [_Button("动态拷贝", yq_cv, yq_cv)]^c^c^pYQ_DYNAMICCOPY ^p
+ID_tbyq_stretch_d       [_Button("带缺省距离拉伸", yq_std, yq_std)]^c^c^pYQ_STRETCH_D ^p
+ID_tbyq_move_d          [_Button("带缺省距离移动", yq_vd, yq_vd)]^c^c^pYQ_MOVE_D ^p
+ID_tbyq_move_memorial   [_Button("记忆移动", yq_vr, yq_vr)]^c^c^pYQ_MOVE_MEMORIAL ^p
+ID_tbyq_copy_memorial   [_Button("记忆拷贝", yq_cr, yq_cr)]^c^c^pYQ_COPY_MEMORIAL ^p
+[--]
+ID_tbyq_superoffset     [_Button("同时偏移", yq_sf, yq_sf)]^c^c^pYQ_SUPEROFFSET ^p
+ID_tbyq_extendtopoint   [_Button("延长到指定点或线段", yq_exx, yq_exx)]^c^c^pYQ_EXTENDTOPOINT ^p
+[--]
+ID_tbyq_join_arcline    [_Button("连接线/弧/多段线", yq_ff, yq_ff)]^c^c^pYQ_JOIN_ARCLINE ^p
+ID_tbyq_connect2glines  [_Button("延长对接两组线段", yq_fx, yq_fx)]^c^c^pYQ_CONNECT2GLINES ^p
+[--]
+ID_tbyq_quickwipeout    [_Button("快速加减遮罩", yq_zz, yq_zz)]^c^c^pYQ_QUICKWIPEOUT ^p
+[--]
+ID_tbyq_breakall        [_Button("交点齐断", yq_ba, yq_ba)]^c^c^pYQ_BREAKALL ^p
+ID_tbyq_breakerase      [_Button("框选打断并删除短线", yq_te, yq_te)]^c^c^pYQ_BREAKERASE ^p
+ID_tbyq_break_at        [_Button("一点打断", yq_bb, yq_bb)]^c^c^pYQ_BREAK_AT ^p
+ID_tbyq_break_at2       [_Button("二点打断", yq_bf, yq_bf)]^c^c^pYQ_BREAK_AT2 ^p
+
+**CheckAndCorrect
+ID_tbCheckAndCorrect    [_Toolbar("源泉.检查修正", _right, _show, 2, 12, 1)]
+ID_tbyq_clear_z         [_Button("拍平图元(Z轴归零)", yq_z0, yq_z0)]^c^c^pYQ_CLEAR_Z ^p
+ID_tbyq_block_z0        [_Button("拍平图块(Z轴归零)", yq_bbz0, yq_bbz0)]^c^c^pYQ_BLOCK_Z0 ^p
+[--]
+ID_tbyq_remove_duplicate    [_Button("消除重叠图元", yq_rd, yq_rd)]^c^c^pYQ_REMOVE_DUPLICATE ^p
+ID_tbyq_linklinearc     [_Button("连接断线/断圆弧线", yq_lx, yq_lx)]^c^c^pYQ_LINKLINEARC ^p
+ID_tbyq_lineclean       [_Button("清除点/短线/空字等", yq_lc, yq_lc)]^c^c^pYQ_LINECLEAN ^p
+ID_tbyq_adjust          [_Button("图元校正对齐到网格", yq_jz, yq_jz)]^c^c^pYQ_ADJUST ^p
+ID_tbyq_oblique_correction  [_Button("线段斜改正", yq_xgz, yq_xgz)]^c^c^pYQ_OBLIQUE_CORRECTION ^p
+[--]
+ID_tbyq_merge           [_Button("杂项合并图层等", yq_xhb, yq_xhb)]^c^c^pYQ_MERGE ^p
+ID_tbyq_purgeall        [_Button("清理无用项目", yq_pua, yq_pua)]^c^c^pYQ_PURGEALL ^p
+ID_tbyq_purgefiles      [_Button("清理文件夹dwg无用项", yq_puf, yq_puf)]^c^c^pYQ_PURGEFILES ^p
+[--]
+ID_tbyq_checkcolor      [_Button("查图元颜色号", yq_cys, yq_cys)]^c^c^pYQ_CHECKCOLOR ^p
+ID_tbyq_findnonortholines   [_Button("找出不正交的线段", yq_bpx, yq_bpx)]^c^c^pYQ_FINDNONORTHOLINES ^p
+ID_tbyq_ucsmatch        [_Button("找不平行WCS平面图元", yq_um, yq_um)]^c^c^pYQ_UCSMATCH ^p
+ID_tbyq_checkorthoaxis  [_Button("线段垂直检测", yq_bcz, yq_bcz)]^c^c^pYQ_CHECKORTHOAXIS ^p
+[--]
+ID_tbyq_revcloud        [_Button("修订云线", yq_yx, yq_yx)]^c^c^pYQ_REVCLOUD ^p
+
+**BlockTools
+ID_tbBlockTools         [_Toolbar("源泉.图块属性", _right, _show, 2, 13, 1)]
+ID_tbyq_heaptrees       [_Button("成片乔灌木", yq_hhs, yq_hhs)]^c^c^pYQ_HEAPTREES ^p
+ID_tbyq_landscape       [_Button("环境分析符号", yq_hj, yq_hj)]^c^c^pYQ_LANDSCAPE ^p
+[--]
+ID_tbyq_block2bylayer   [_Button("改图块内图层/颜色", yq_bb0, yq_bb0)]^c^c^pYQ_BLOCK2BYLAYER ^p
+ID_tbyq_blockbasepoint  [_Button("图块改基点", yq_bbi, yq_bbi)]^c^c^pYQ_BLOCKBASEPOINT ^p
+ID_tbyq_block2newname   [_Button("图块改名", yq_bbr, yq_bbr)]^c^c^pYQ_BLOCK2NEWNAME ^p
+ID_tbyq_block_batchrename  [_Button("图块批量改名", yq_bbg, yq_bbg)]^c^c^pYQ_BLOCK_BATCHRENAME ^p
+ID_tbyq_quickdetailblock   [_Button("快速制作大样图图块", yq_bbd, yq_bbd)]^c^c^pYQ_QUICKDETAILBLOCK ^p
+ID_tbyq_blockscale      [_Button("设置图块(图框)比例", yq_bbs, yq_bbs)]^c^c^pYQ_BLOCKSCALE ^p
+ID_tbyq_block_writeout  [_Button("批量导出图块文件", yq_bbw, yq_bbw)]^c^c^pYQ_BLOCK_WRITEOUT ^p
+ID_tbyq_replacebydwg    [_Button("用dwg替代图中块", yq_bbtd, yq_bbtd)]^c^c^pYQ_REPLACEBYDWG ^p
+[--]
+ID_tbyq_quicknewblock   [_Button("快速制作一个图块", yq_bbn, yq_bbn)]^c^c^pYQ_QUICKNEWBLOCK ^p
+ID_tbyq_block_add       [_Button("往图块中加入图元", yq_bba, yq_bba)]^c^c^pYQ_BLOCK_ADD ^p
+ID_tbyq_block_remove    [_Button("删除块中一个图元", yq_bbe, yq_bbe)]^c^c^pYQ_BLOCK_REMOVE ^p
+ID_tbyq_block_copy      [_Button("从图块中复制图元", yq_bbc, yq_bbc)]^c^c^pYQ_BLOCK_COPY ^p
+ID_tbyq_blockwipeout    [_Button("图块加减遮罩", yq_bbzz, yq_bbzz)]^c^c^pYQ_BLOCKWIPEOUT ^p
+[--]
+ID_tbyq_create_minsert  [_Button("制作匿名加密块", yq_bbjm, yq_bbjm)]^c^c^pYQ_CREATE_MINSERT ^p
+ID_tbyq_explode_minsert [_Button("炸碎图块或匿名块", yq_bbx, yq_bbx)]^c^c^pYQ_EXPLODE_MINSERT ^p
+ID_tbyq_explode_nblock  [_Button("王炸嵌套块", yq_bbx, yq_bbx)]^c^c^pYQ_EXPLODE_NBLOCK ^p
+[--]
+ID_tbyq_blocktext2att   [_Button("块中文字转为属性", yq_bbsx, yq_bbsx)]^c^c^pYQ_BLOCKTEXT2ATT ^p
+ID_tbyq_modify_att      [_Button("修改块内属性域", yq_sxg, yq_sxg)]^c^c^pYQ_MODIFY_ATT ^p
+ID_tbyq_increase_att    [_Button("递增块内属性域", yq_sxz, yq_sxz)]^c^c^pYQ_INCREASE_ATT ^p
+ID_tbyq_changeatts      [_Button("批量处理块属性", yq_sxc, yq_sxc)]^c^c^pYQ_CHANGEATTS ^p
+ID_tbyq_blockatt2text   [_Button("提取块内属性为文字", yq_sxt, yq_sxt)]^c^c^pYQ_BLOCKATT2TEXT ^p
+ID_tbyq_erase_blkatt    [_Button("删除块内属性", yq_sxe, yq_sxe)]^c^c^pYQ_ERASE_BLKATT ^p
+[--]
+ID_tbyq_blockviewer     [_Button("图库管理", yq_bv, yq_bv)]^c^c^pYQ_BLOCKVIEWER ^p
+ID_tbyq_blockviewer1    [_Button("图库管理1", yq_bv, yq_bv)]^c^c^pYQ_BLOCKVIEWER1 ^p
+ID_tbyq_blockviewer2    [_Button("图库管理2", yq_bv, yq_bv)]^c^c^pYQ_BLOCKVIEWER2 ^p
+ID_tbyq_blockviewer3    [_Button("图库管理3", yq_bv, yq_bv)]^c^c^pYQ_BLOCKVIEWER3 ^p
+
+**HatchingTools
+ID_tbHatchingTools      [_Toolbar("源泉.填充线型", _right, _show, 2, 14, 1)]
+ID_tbyq_hatchkeys       [_Button("设置填充图案快捷键", yq_hhsc, yq_hhsc)]^c^c^pYQ_HATCHKEYS ^p
+ID_tbyq_hatchingscale   [_Button("特性.改填充及比例", yq_xtc, yq_xtc)]^c^c^pYQ_HATCHINGSCALE ^p
+ID_tbyq_hatch_quick     [_Button("快捷填充", yq_tc, yq_tc)]^c^c^pYQ_HATCH_QUICK ^p
+ID_tbyq_hatch_match     [_Button("选图案作为模板填充", yq_tct, yq_tct)]^c^c^pYQ_HATCH_MATCH ^p
+ID_tbyq_hatch_slide     [_Button("参数及幻灯片填充", yq_tcc, yq_tcc)]^c^c^pYQ_HATCH_SLIDE ^p
+[--]
+ID_tbyq_hatch_newbase   [_Button("设/移Hatch基准点", yq_hhi, yq_hhi)]^c^c^pYQ_HATCH_NEWBASE ^p
+ID_tbyq_hatch_angle     [_Button("修改填充角度", yq_hha, yq_hha)]^c^c^pYQ_HATCH_ANGLE ^p
+ID_tbyq_hatch_border    [_Button("重建填充图案边界", yq_hhb, yq_hhb)]^c^c^pYQ_HATCH_BORDER ^p
+ID_tbyq_hatch_clipping  [_Button("剪裁填充图案", yq_hhj, yq_hhj)]^c^c^pYQ_HATCH_CLIPPING ^p
+ID_tbyq_hatch_split     [_Button("拆分填充图案", yq_hhx, yq_hhx)]^c^c^pYQ_HATCH_SPLIT ^p
+ID_tbyq_hatch_union     [_Button("合并填充图案", yq_hhu, yq_hhu)]^c^c^pYQ_HATCH_UNION ^p
+ID_tbyq_hatch_disasso   [_Button("去除填充关联", yq_hhgl, yq_hhgl)]^c^c^pYQ_HATCH_DISASSO ^p
+[--]
+ID_tbyq_fill_wall       [_Button("填充墙、柱", yq_wwf, yq_wwf)]^c^c^pYQ_FILL_WALL ^p
+[--]
+ID_tbyq_mkpat           [_Button("制作Hatch图案1mm", yq_mp, yq_mp)]^c^c^pYQ_MKPAT ^p
+ID_tbyq_mkpat1          [_Button("制作Hatch图案", yq_mp1, yq_mp1)]^c^c^pYQ_MKPAT1 ^p
+ID_tbyq_mkpat_byhatch   [_Button("提取制作填充图案", yq_mpp, yq_mpp)]^c^c^pYQ_MKPAT_BYHATCH ^p
+[--]
+ID_tbyq_ltypekeys       [_Button("设置线型快捷键(不处理块内图元)", yq_ltsc, yq_ltsc)]^c^c^pYQ_LTYPEKEYS ^p
+ID_tbyq_ltscale         [_Button("修改线型及比例", yq_xt, yq_xt)]^c^c^pYQ_LTSCALE ^p
+ID_tbyq_ltswitch        [_Button("切换线型(处理块内图元)", yq_xts, yq_xts)]^c^c^pYQ_LTSWITCH ^p
+ID_tbyq_putltscale      [_Button("替换同线型比例", yq_plts, yq_plts)]^c^c^pYQ_PUTLTSCALE ^p
+ID_tbyq_mklinetype      [_Button("制作字符线型", yq_mlt, yq_mlt)]^c^c^pYQ_MKLINETYPE ^p
+ID_tbyq_loadlinetype    [_Button("载入线型", yq_llt, yq_llt)]^c^c^pYQ_LOADLINETYPE ^p
+
+**LayerTools
+ID_tbLayerTools         [_Toolbar("源泉.图层工具", _right, _show, 2, 15, 1)]
+ID_tyq_layer_2current   [_Button("选图元改到当前层", yq_erc, yq_erc)]^c^c^pYQ_LAYER_2CURRENT ^p
+ID_tbyq_layer_new       [_Button("新建图层", yq_ern, yq_ern)]^c^c^pYQ_LAYER_NEW ^p
+ID_tbyq_layer_current   [_Button("设定当前图层", yq_ers, yq_ers)]^c^c^pYQ_LAYER_CURRENT ^p
+ID_tbyq_layer_saverestore    [_Button("保存恢复图层开关状态", yq_err, yq_err)]^c^c^pYQ_LAYER_SAVERESTORE ^p
+[--]
+ID_tbyq_layer_iso       [_Button("关闭非选图层", yq_erd, yq_erd)]^c^c^pYQ_LAYER_ISO ^p
+ID_tbyq_layer_off       [_Button("关闭图层", yq_erf, yq_erf)]^c^c^pYQ_LAYER_OFF ^p
+ID_tbyq_layer_off_all   [_Button("关闭全部图层", yq_eraf, yq_eraf)]^c^c^pYQ_LAYER_OFF_ALL ^p
+ID_tbyq_layer_on        [_Button("打开图层", yq_era, yq_era)]^c^c^pYQ_LAYER_ON ^p
+ID_tbyq_layer_on_all    [_Button("打开全部图层", yq_eraa, yq_eraa)]^c^c^pYQ_LAYER_ON_ALL ^p
+ID_tbyq_layer_on2off    [_Button("切换全部图层开关", yq_erv, yq_erv)]^c^c^pYQ_LAYER_ON2OFF ^p
+[--]
+ID_tbyq_layer_lock      [_Button("锁定图层", yq_erl, yq_erl)]^c^c^pYQ_LAYER_LOCK ^p
+ID_tbyq_layer_iso_lock  [_Button("锁定非选图层", yq_erdl, yq_erdl)]^c^c^pYQ_LAYER_ISO_LOCK ^p
+ID_tbyq_layer_unlock    [_Button("解锁图层", yq_eru, yq_eru)]^c^c^pYQ_LAYER_UNLOCK ^p
+[--]
+ID_tbyq_layer_freeze    [_Button("冻结图层", yq_erz, yq_erz)]^c^c^pYQ_LAYER_FREEZE ^p
+ID_tbyq_layer_iso_freeze    [_Button("冻结非选图层", yq_erdz, yq_erdz)]^c^c^pYQ_LAYER_ISO_FREEZE ^p
+ID_tbyq_layer_thaw      [_Button("解冻图层", yq_ert, yq_ert)]^c^c^pYQ_LAYER_THAW ^p
+[--]
+ID_tbyq_layer_noff      [_Button("关闭块内图层", yq_erbf, yq_erbf)]^c^c^pYQ_LAYER_NOFF ^p
+ID_tbyq_layer_nfreeze   [_Button("冻结块内图层", yq_erbz, yq_erbz)]^c^c^pYQ_LAYER_NFREEZE ^p
+ID_tbyq_layer_showall   [_Button("解冻/解锁/打开全部图层", yq_erer, yq_erer)]^c^c^pYQ_LAYER_SHOWALL ^p
+[--]
+ID_tbyq_layer_replace   [_Button("批量替换图层", yq_ertd, yq_ertd)]^c^c^pYQ_LAYER_REPLACE ^p
+ID_tbyq_layer_batchrename    [_Button("图层批量改名", yq_erg, yq_erg)]^c^c^pYQ_LAYER_BATCHRENAME ^p
+ID_tbyq_merge_layer     [_Button("合并图层", yq_erm, yq_erm)]^c^c^pYQ_MERGE_LAYER ^p
+ID_tbyq_formlaybycolor  [_Button("按图元颜色重新分层", yq_c2er, yq_c2er)]^c^c^pYQ_FORMLAYBYCOLOR ^p
+ID_tbyq_layerkeys       [_Button("设置转换图层快捷键", yq_erk, yq_erk)]^c^c^pYQ_LAYERKEYS ^p
+ID_tbyq_colorkeys       [_Button("设置转换颜色快捷键", yq_erk, yq_erk)]^c^c^pYQ_COLORKEYS ^p
+[--]
+ID_tbyq_outputlayers    [_Button("导出图层文件", yq_ero, yq_ero)]^c^c^pYQ_OUTPUTLAYERS ^p
+ID_tbyq_inputlayers     [_Button("导入图层文件", yq_eri, yq_eri)]^c^c^pYQ_INPUTLAYERS ^p
+
+**ViewportTools
+ID_tbViewportTools          [_Toolbar("源泉.视口布局", _right, _show, 2, 16, 1)]
+ID_tbyq_vplayer_manager     [_Button("管理视口图层", yq_vvc, yq_vvc)]^c^c^pYQ_VPLAYER_MANAGER ^p
+ID_tbyq_vplayer_freeze      [_Button("冻结视口图层", yq_vvz, yq_vvz)]^c^c^pYQ_VPLAYER_FREEZE ^p
+ID_tbyq_vplayer_nfreeze     [_Button("冻结视口块内图层", yq_vvbz, yq_vvbz)]^c^c^pYQ_VPLAYER_NFREEZE ^p
+ID_tbyq_vplayer_thaw        [_Button("解冻视口图层", yq_vvt, yq_vvt)]^c^c^pYQ_VPLAYER_THAW ^p
+ID_tbyq_vplayer_iso         [_Button("隔离视口图层", yq_vvdz, yq_vvdz)]^c^c^pYQ_VPLAYER_ISO ^p
+ID_tbyq_vplayer_isoall      [_Button("隔离其他视口图层", yq_vvzz, yq_vvzz)]^c^c^pYQ_VPLAYER_ISOALL ^p
+ID_tbyq_vplayer_gray        [_Button("视口图层变色", yq_vvh, yq_vvh)]^c^c^pYQ_VPLAYER_GRAY ^p
+ID_tbyq_vplayer_recover     [_Button("还原视口层颜色", yq_vvhf, yq_vvhf)]^c^c^pYQ_VPLAYER_RECOVER ^p
+[--]
+ID_tbyq_viewport_new        [_Button("新建视口", yq_vvn, yq_vvn)]^c^c^pYQ_VIEWPORT_NEW ^p
+ID_tbyq_viewport_split      [_Button("拆分视口", yq_vv2, yq_vv2)]^c^c^pYQ_VIEWPORT_SPLIT ^p
+ID_tbyq_model2viewport      [_Button("模型范围新建视口", yq_mvv, yq_mvv)]^c^c^pYQ_MODEL2VIEWPORT ^p
+ID_tbyq_curve2viewport      [_Button("闭合曲线变视口", yq_xxvv, yq_xxvv)]^c^c^pYQ_CURVE2VIEWPORT ^p
+ID_tbyq_viewport_scale      [_Button("设定视口比例", yq_vvs, yq_vvs)]^c^c^pYQ_VIEWPORT_SCALE ^p
+ID_tbyq_viewport_sync       [_Button("对齐视口内容", yq_vvdq, yq_vvdq)]^c^c^pYQ_VIEWPORT_SYNC ^p
+ID_tbyq_viewport_pan        [_Button("平移视口视图", yq_vvp, yq_vvp)]^c^c^pYQ_VIEWPORT_PAN ^p
+[--]
+ID_tbyq_viewport_lock       [_Button("锁定视口", yq_vvl, yq_vvl)]^c^c^pYQ_VIEWPORT_LOCK ^p
+ID_tbyq_viewport_lock_all   [_Button("锁定全部视口", yq_vval, yq_vval)]^c^c^pYQ_VIEWPORT_LOCK_ALL ^p
+ID_tbyq_viewport_unlock     [_Button("解锁视口", yq_vvu, yq_vvu)]^c^c^pYQ_VIEWPORT_UNLOCK ^p
+ID_tbyq_viewport_unlock_all [_Button("解锁全部视口", yq_vvau, yq_vvau)]^c^c^pYQ_VIEWPORT_UNLOCK_ALL ^p
+[--]
+ID_tbyq_viewport_off        [_Button("关闭视口", yq_vvf, yq_vvf)]^c^c^pYQ_VIEWPORT_OFF ^p
+ID_tbyq_viewport_off_all    [_Button("关闭全部视口", yq_vvaf, yq_vvaf)]^c^c^pYQ_VIEWPORT_OFF_ALL ^p
+ID_tbyq_viewport_on         [_Button("打开视口", yq_vva, yq_vva)]^c^c^pYQ_VIEWPORT_ON ^p
+ID_tbyq_viewport_on_all     [_Button("打开全部视口", yq_vvaa, yq_vvaa)]^c^c^pYQ_VIEWPORT_ON_ALL ^p
+[--]
+ID_tbyq_viewport2pspace     [_Button("视口转布局块", yq_vvbb, yq_vvbb)]^c^c^pYQ_VIEWPORT2PSPACE ^p
+[--]
+ID_tbyq_layout_batchrename  [_Button("布局批量改名", yq_tzg, yq_tzg)]^c^c^pYQ_LAYOUT_BATCHRENAME ^p
+ID_tbyq_frames2layouts      [_Button("选图框拆分为布局", yq_tzf, yq_tzf)]^c^c^pYQ_FRAMES2LAYOUTS ^p
+ID_tbyq_framedivided        [_Button("图纸绘图区分割", yq_tzfg, yq_tzfg)]^c^c^pYQ_FRAMEDIVIDED ^p
+[--]
+ID_tbyq_ucsdir          [_Button("旋转立面视图4方向", yq_vvd, yq_vvd)]^c^c^pYQ_UCSDIR ^p
+ID_tbyq_snapshot        [_Button("视图快照", yq_kz, yq_kz)]^c^c^pYQ_SNAPSHOT ^p
+ID_tbyq_hyperlink       [_Button("超链接及视图管理", yq_clj, yq_clj)]^c^c^pYQ_HYPERLINK ^p
+
+**MatchTools
+ID_tbMatchTools         [_Toolbar("源泉.特性刷子", _right, _show, 2, 17, 1)]
+ID_tbyq_match_block     [_Button("刷子.匹配/替换图块", yq_ssb, yq_ssb)]^c^c^pYQ_MATCH_BLOCK ^p
+ID_tbyq_match_dynprops  [_Button("刷子.匹配动态块属性", yq_ssd, yq_ssd)]^c^c^pYQ_MATCH_DYNPROPS ^p
+ID_tbyq_match_rotation  [_Button("刷子.匹配旋转角度", yq_ssrt, yq_ssrt)]^c^c^pYQ_MATCH_ROTATION ^p
+[--]
+ID_tbyq_match_layer     [_Button("刷子.匹配图层", yq_sser, yq_sser)]^c^c^pYQ_MATCH_LAYER ^p
+ID_tbyq_match_color     [_Button("刷子.匹配颜色", yq_ssc, yq_ssc)]^c^c^pYQ_MATCH_COLOR ^p
+ID_tbyq_match_layercolor    [_Button("刷子.匹配图层与颜色", yq_sscc, yq_sscc)]^c^c^pYQ_MATCH_LAYERCOLOR ^p
+ID_tbyq_match_vplayer   [_Button("刷子.匹配视口图层", yq_ssvv, yq_ssvv)]^c^c^pYQ_MATCH_VPLAYER ^p
+[--]
+ID_tbyq_match_content   [_Button("刷子.匹配文字内容", yq_sst, yq_sst)]^c^c^pYQ_MATCH_CONTENT ^p
+ID_tbyq_match_style     [_Button("刷子.匹配文字样式", yq_ssst, yq_ssst)]^c^c^pYQ_MATCH_STYLE ^p
+ID_tbyq_match_textheight   [_Button("刷子.匹配文字高度", yq_ssh, yq_ssh)]^c^c^pYQ_MATCH_TEXTHEIGHT ^p
+[--]
+ID_tbyq_match_width     [_Button("刷子.多段线宽度", yq_ssw, yq_ssw)]^c^c^pYQ_MATCH_WIDTH ^p
+ID_tbyq_match_linetype  [_Button("刷子.匹配线型", yq_ssxt, yq_ssxt)]^c^c^pYQ_MATCH_LINETYPE ^p
+ID_tbyq_match_thickness [_Button("刷子.匹配竖向厚度", yq_ssth, yq_ssth)]^c^c^pYQ_MATCH_THICKNESS ^p
+
+**OtherTools
+ID_tbOtherTools         [_Toolbar("源泉.其他工具", _right, _show, 2, 18, 1)]
+ID_tbyq_batchplot       [_Button("选图框批量打印", yq_bp, yq_bp)]^c^c^pYQ_BATCHPLOT ^p
+[--]
+ID_tbyq_catalog         [_Button("编制图纸目录", yq_dwgl, yq_dwgl)]^c^c^pYQ_CATALOG ^p
+ID_tbyd_outputdwgs      [_Button("选图框归档图纸", yq_dwgs, yq_dwgs)]^c^c^pYQ_OUTPUTDWGS ^p
+ID_tbyq_arrangedwgs     [_Button("排列合并图档", yq_dwga, yq_dwga)]^c^c^pYQ_ARRANGEDWGS ^p
+[--]
+ID_tbyq_hideselect      [_Button("隐藏选择图元", yq_eef, yq_eef)]^c^c^pYQ_HIDESELECT ^p
+ID_tbyq_hideunselect    [_Button("隐藏非选择图元", yq_eed, yq_eed)]^c^c^pYQ_HIDEUNSELECT ^p
+ID_tbyq_displayhide     [_Button("显示全部隐藏图元", yq_eea, yq_eea)]^c^c^pYQ_DISPLAYHIDE ^p
+ID_tbyq_displayall      [_Button("强制显示全部图元", yq_eeaa, yq_eeaa)]^c^c^pYQ_DISPLAYALL ^p
+[--]
+ID_tbyq_quickgroup      [_Button("快速制作一个编组", yq_ggn, yq_ggn)]^c^c^pYQ_QUICKGROUP ^p
+ID_tbyq_explodegroup    [_Button("解散一个编组", yq_ggx, yq_ggx)]^c^c^pYQ_EXPLODEGROUP ^p
+ID_tbyq_group_add       [_Button("加入一个编组", yq_gga, yq_gga)]^c^c^pYQ_GROUP_ADD ^p
+ID_tbyq_group_remove    [_Button("删除编组中图元", yq_gge, yq_gge)]^c^c^pYQ_GROUP_REMOVE ^p
+ID_tbyq_group_separate  [_Button("从编组中分离图元", yq_ggs, yq_ggs)]^c^c^pYQ_GROUP_SEPARATE ^p
+ID_tbyq_purgegroup      [_Button("清除无用编组", yq_ggp, yq_ggp)]^c^c^pYQ_PURGEGROUP ^p
+[--]
+ID_tbyq_switch_dynamic  [_Button("切换是否使用动态", yq_dtyq, yq_dtyq)]^c^c^pYQ_SWITCH_DYNAMIC ^p
+ID_tbyq_drawclipboard   [_Button("画出Excel粘贴板坐标", yq_ztb, yq_ztb)]^c^c^pYQ_DRAWCLIPBOARD ^p
+ID_tbyq_acad2kml        [_Button("输出到谷歌地球", yq_a2k, yq_a2k)]^c^c^pYQ_ACAD2KML ^P
+[--]
+ID_tbyq_commandfinder   [_Button("源泉设计命令查找", yq_zml, yq_zml)]^c^c^pYQ_COMMANDFINDER ^P
+ID_tbyq_lastyqcmd       [_Button("重复上一个源泉命令", yq_q, yq_q)]^c^c^pYQ_LASTYQCMD ^P
+[--]
